@@ -8,7 +8,9 @@ module.exports = async (env, argv) => {
 			host: "localhost",
 			hot: true,
 			inline: true,
-			port: 3000
+			port: 3000,
+			historyApiFallback: true
+
 		},
 		mode: "development"
 	});

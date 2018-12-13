@@ -35,7 +35,7 @@ export const Gitches = () => {
 					<Gitch key={gitch.github}>
 						<BlockLink href={gitch.url}>
 							<Avatar>
-								<Gravatar src={gitch.gravatar} alt={gitch.name} />
+								<Gravatar src={gitch.gravatar || "https://bullg.it/media/vectors/bullgit-logo.svg"} alt={gitch.name} />
 							</Avatar>
 						</BlockLink>
 						<Info>

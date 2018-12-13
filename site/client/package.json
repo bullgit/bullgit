@@ -43,12 +43,18 @@
   },
   "dependencies": {
     "@bullgit/styled-components": "0.1.0",
-    "@types/react": "16.7.13",
+    "@types/react": "16.7.17",
     "@types/react-dom": "16.0.11",
     "@types/react-hot-loader": "4.1.0",
+    "@types/react-router": "4.4.3",
+    "@types/react-router-dom": "4.3.1",
     "react": "16.6.3",
     "react-dom": "16.6.3",
-    "react-hot-loader": "4.3.12"
+    "react-hot-loader": "4.6.0",
+    "react-mapbox-gl": "4.0.2",
+    "react-router": "4.3.1",
+    "react-router-dom": "4.3.1",
+    "mapbox-gl": "0.52.0-beta.2"
   },
   "prvate": true,
   "publishConfig": {

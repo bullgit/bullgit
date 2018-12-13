@@ -1,14 +1,15 @@
 const globby = require("globby");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackHarddiskPlugin = require("html-webpack-harddisk-plugin");
-const styled = require("styled-components");
-const React = require("react");
-const ReactDOMServer = require("react-dom/server");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
+const React = require("react");
+const {StaticRouter} = require('react-router');
+const ReactDOMServer = require("react-dom/server");
+const styled = require("styled-components");
 
 module.exports = async (env, argv) => {
 	const cwd = process.cwd();
-	const TEMP = path.resolve(cwd);
+	const CWD = path.resolve(cwd);
 	const SRC = path.resolve(cwd, "src");
 	const LIB = path.resolve(cwd, "lib/src");
 	const PUBLIC = path.resolve(cwd, "public");
@@ -38,29 +39,44 @@ module.exports = async (env, argv) => {
 							loader: "babel-loader"
 						}
 					]
+				},
+				{
+					test: /\.css$/,
+					use: ['style-loader', 'css-loader'],
 				}
 			]
 		},
 		plugins: [
-			...((await globby(path.resolve(TEMP, "html/*.html"), { cwd })) || []).map(template => {
+			...((() => {
+				const template = path.resolve(CWD, "html/index.html");
 				const { base: filename } = path.parse(template);
 				const alwaysWriteToDisk = true;
 				const { default: App } = require(path.resolve(LIB, "app.js"));
 				const sheet = new styled.ServerStyleSheet();
-				const component = React.createElement(App);
-				const app = ReactDOMServer.renderToString((component));
-				const head = sheet.getStyleTags();
-				const templateParameters = {
-					app,
-					head
-				};
-				return new HtmlWebpackPlugin({
-					alwaysWriteToDisk,
-					filename,
-					template,
-					templateParameters
+				const appRoutes = path.resolve(CWD, "lib/src/routes.js")
+				const {routes} = require(appRoutes);
+				const pages = routes.map(page => {
+					const component = React.createElement(StaticRouter, {
+							location: page.location,
+							context: {}
+						},
+						React.createElement(App));
+					const app = ReactDOMServer.renderToString((component));
+					const head = sheet.getStyleTags();
+					const templateParameters = {
+						app,
+						head
+					};
+					const outputFile = path.join(page.location, filename).replace(/^\//, "");
+					return new HtmlWebpackPlugin({
+						alwaysWriteToDisk,
+						filename: outputFile,
+						template,
+						templateParameters
+					});
 				});
-			}),
+				return pages;
+			})()),
 			new HtmlWebpackHarddiskPlugin()
 		]
 	};

@@ -11,9 +11,10 @@
   "author": "Gregor Adams <greg@pixelass.com>",
   "license": "MIT",
   "scripts": {
-    "build": "yarn rollup && yarn website:build",
+    "build": "cross-env NODE_ENV=producion yarn rollup && cli:build && yarn website:build",
     "watch": "yarn rollup && concurrently 'yarn rollup:watch' 'yarn website:watch'",
     "clean": "lerna run clean && lerna clean -y && rimraf node_modules",
+    "reset": "yarn clean && rimraf yarn.lock && yarn",
     "check:updates": "ncu -a; yarn lerna exec 'ncu -a'",
     "check:changes": "lerna changed",
     "lint": "lerna exec 'tslint **/*.{ts,tsx}' --stream",
@@ -22,7 +23,7 @@
     "cli:watch": "lerna run rollup:watch --scope @bullgit/cli --stream",
     "website:build": "lerna run build --scope website --stream",
     "website:watch": "lerna run watch --scope website --stream",
-    "rollup": "lerna run rollup --stream",
+    "rollup": "lerna run rollup --stream --ignore @bullgit/cli",
     "rollup:watch": "lerna run rollup:watch --stream --ignore @bullgit/cli",
     "bullgit:repos": "lerna exec 'bullgit repos --write' --scope website",
     "bullgit": "node tools/cli/bullgit --outDir site/client/data",
@@ -30,6 +31,7 @@
   },
   "dependencies": {
     "concurrently": "4.1.0",
+    "cross-env": "5.2.0",
     "husky": "^1.2.0",
     "rimraf":"2.6.2",
     "lerna": "^3.6.0"
