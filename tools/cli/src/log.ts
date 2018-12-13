@@ -1,4 +1,3 @@
-import chalk from "chalk";
 import {createLogger, format, transports} from "winston";
 
 /**

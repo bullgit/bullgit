@@ -44,7 +44,7 @@ export const updateGitch = (data: Gitch[], gitch) =>
 const client = github.client();
 export const getRepos = async () => {
 	const bullgitOnGithub = client.user("bullgit");
-	const [repos] = await bullgitOnGithub.reposAsync();
+	const [repos] = await bullgitOnGithub.reposAsync({ per_page: 200 });
 	return repos;
 };
 export const writeRepos = async outFile => {
