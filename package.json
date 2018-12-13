@@ -11,7 +11,7 @@
   "author": "Gregor Adams <greg@pixelass.com>",
   "license": "MIT",
   "scripts": {
-    "build": "cross-env NODE_ENV=producion yarn rollup && cli:build && yarn website:build",
+    "build": "cross-env NODE_ENV=producion yarn rollup && yarn website:build",
     "watch": "yarn rollup && concurrently 'yarn rollup:watch' 'yarn website:watch'",
     "clean": "lerna run clean && lerna clean -y && rimraf node_modules",
     "reset": "yarn clean && rimraf yarn.lock && yarn",
