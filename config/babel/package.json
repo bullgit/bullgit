@@ -1,0 +1,26 @@
+{
+  "name": "@bullgit/config-babel",
+  "version": "0.1.0",
+  "description": "extendable babel configs",
+  "main": "esnext.js",
+  "files": [
+    "config/*",
+    "esnext.js",
+    "react.js",
+    "styled-components.js",
+    "ts-react.js",
+    "ts-styled-components.js",
+    "typescript.js"
+  ],
+  "author": "Gregor Adams <greg@pixelass.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "7.2.0",
+    "@babel/plugin-proposal-decorators": "7.2.0",
+    "@babel/plugin-proposal-class-properties": "7.2.1",
+    "@babel/plugin-proposal-object-rest-spread": "7.2.0",
+    "@babel/preset-env": "7.2.0",
+    "@babel/preset-react": "7.0.0",
+    "@babel/preset-typescript": "7.1.0"
+  }
+}

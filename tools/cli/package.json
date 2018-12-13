@@ -1,0 +1,56 @@
+{
+  "name": "@bullgit/cli",
+  "version": "0.1.0",
+  "description": "Bullgit command line tools",
+  "main": "index.js",
+  "module": "dist/es/index.js",
+  "files": [
+    "dist/*",
+    "index.js",
+    "bullgit.js",
+    "gitch.js"
+  ],
+  "bin": {
+    "bullgit": "bullgit.js",
+    "gitch": "gitch.js"
+  },
+  "author": "Gregor Adams <greg@pixelass.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn rollup",
+    "clean": "yarn clean:dist;",
+    "clean:dist": "rimraf dist",
+    "prebuild": "yarn clean",
+    "rollup": "rollup -c",
+    "rollup:watch": "rollup -cw"
+  },
+  "devDependencies": {
+    "@bullgit/config-babel": "0.1.0",
+    "@bullgit/config-prettier": "0.1.0",
+    "@bullgit/config-rollup": "0.1.0",
+    "@bullgit/config-typescript": "0.1.0",
+    "@bullgit/config-tslint": "0.1.0",
+    "typescript": "3.2.2"
+  },
+  "peerDependencies": {
+
+  },
+  "dependencies": {
+    "@types/chalk": "2.2.0",
+    "@types/pify": "3.0.2",
+    "@types/mkdirp": "0.5.2",
+    "@types/meow": "5.0.0",
+    "chalk": "2.4.1",
+    "meow": "5.0.0",
+    "enquirer": "2.1.1",
+    "json2yaml": "1.1.0",
+    "geocoder": "0.2.3",
+    "mkdirp": "0.5.1",
+    "octonode": "0.9.5",
+    "pify": "4.0.1",
+    "winston": "3.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

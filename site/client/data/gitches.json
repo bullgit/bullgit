@@ -1,0 +1,396 @@
+[
+  {
+    "name": "Jan",
+    "twitter": "reimersjan",
+    "github": "reimersjan",
+    "codepen": "reimersjan",
+    "email": "reimersjan@bullg.it",
+    "gravatar": "https://www.gravatar.com/avatar/70a6717ba8980c521fc75d3e44a31e2f?s=320",
+    "title": "Senior Beard Manager",
+    "latlon": [
+      53.553407,
+      9.992196
+    ]
+  },
+  {
+    "name": "Tim",
+    "twitter": "timpietrusky",
+    "url": "http://timpietrusky.com",
+    "github": "timpietrusky",
+    "codepen": "timpietrusky",
+    "email": "timpietrusky@bullg.it",
+    "gravatar": "https://www.gravatar.com/avatar/13a9550a854af911366d9f5deb785cd6?s=320",
+    "latlon": [
+      50.1109221,
+      8.6821267
+    ]
+  },
+  {
+    "name": "Kevin",
+    "twitter": "_kevinatari",
+    "url": "http://kevingimbel.com",
+    "github": "kevingimbel",
+    "codepen": "kevingimbel",
+    "gravatar": "https://www.gravatar.com/avatar/6d391d8c3a528122f3f6c991821350ac?s=320",
+    "latlon": [
+      50.0123996,
+      8.4217125
+    ]
+  },
+  {
+    "name": "Max",
+    "twitter": "MyXoToD",
+    "url": "http://myxotod.com",
+    "github": "myxotod",
+    "codepen": "MyXoToD",
+    "gravatar": "https://www.gravatar.com/avatar/a284083f6f4f9446723adf3b97b90151?s=320",
+    "latlon": [
+      49.9928617,
+      8.2472526
+    ]
+  },
+  {
+    "name": "Luky",
+    "twitter": "LukyVj",
+    "url": "http://lucasbonomi.com",
+    "github": "LukyVj",
+    "codepen": "LukyVj",
+    "gravatar": "https://www.gravatar.com/avatar/1ef5a7c2cc326fb4d4bfef8664bdeb49?s=320",
+    "title": "Creative Frontpage Expert",
+    "latlon": [
+      48.86951,
+      2.35181
+    ],
+    "pro": true
+  },
+  {
+    "name": "Felix",
+    "twitter": "dervondenbergen",
+    "url": "https://demont.is",
+    "github": "dervondenbergen",
+    "codepen": "dervondenbergen",
+    "email": "felix@bullg.it",
+    "gravatar": "https://www.gravatar.com/avatar/68bb57deeafda8981e331a91036f6184?s=320",
+    "title": "Minimum Viable Product Developer",
+    "latlon": [
+      48.20038,
+      16.35183
+    ],
+    "pro": true
+  },
+  {
+    "name": "Kanu",
+    "twitter": "kmandalwala",
+    "url": "http://seebeetee.com",
+    "github": "krman009",
+    "codepen": "kman",
+    "gravatar": "https://www.gravatar.com/avatar/69853eaa3e2af813cb7f1bb8bda64012?s=320",
+    "latlon": [
+      22.3038945,
+      70.8021599
+    ]
+  },
+  {
+    "name": "Nils",
+    "twitter": "schoenwaldnils",
+    "url": "http://www.schoenwald.media",
+    "github": "schoenwaldnils",
+    "codepen": "schoenwaldnils",
+    "gravatar": "https://www.gravatar.com/avatar/42b48966b3c4cb81b6900ca638e3a76c?s=320",
+    "title": "Junior Beard Developer",
+    "latlon": [
+      53.561475,
+      10.049352
+    ]
+  },
+  {
+    "name": "Olly",
+    "twitter": "/0x04",
+    "url": "http://0x04.de",
+    "github": "/0x04",
+    "codepen": "/0x04",
+    "gravatar": "https://www.gravatar.com/avatar/7394c127882b3240818c86bbdc007599?s=320",
+    "title": "Qualitative Table Layout King (QTLK)",
+    "latlon": [
+      47.8966802,
+      10.4151477
+    ]
+  },
+  {
+    "name": "Ty",
+    "twitter": "TyBpa",
+    "url": "http://tystrong.me",
+    "github": "tystrong",
+    "codepen": "spikeyty",
+    "gravatar": "https://gravatar.com/avatar/27156a00138d4f99d6edb350e3bb9a75?s=320",
+    "latlon": [
+      39.440336,
+      -84.3621634
+    ]
+  },
+  {
+    "name": "Jose",
+    "twitter": "jofpin",
+    "url": "https://boxug.com",
+    "github": "jofpin",
+    "codepen": "jofpin",
+    "title": "Gitch Hacker",
+    "email": "jose@boxug.com",
+    "gravatar": "https://www.gravatar.com/avatar/288ce55a011c709f4e17aef7e3c86c64?s=320",
+    "latlon": [
+      4.598056,
+      -74.075833
+    ],
+    "pro": true
+  },
+  {
+    "name": "Leeroyd",
+    "twitter": "leeroydl",
+    "url": "http://leeroyd.com",
+    "github": "leeroyd",
+    "codepen": "leeroyd",
+    "gravatar": "https://www.gravatar.com/avatar/b48a8a25d52dd1eda00c675acea7f628?s=320",
+    "latlon": [
+      48.789032,
+      2.369909
+    ]
+  },
+  {
+    "name": "Tim",
+    "twitter": "tbogdanov80",
+    "url": "http://timbog80.github.io",
+    "github": "timbog80",
+    "codepen": "tbogdanov80",
+    "gravatar": "https://avatars1.githubusercontent.com/u/7907024?v=2&s=320",
+    "latlon": [
+      45.815115,
+      -122.7426009
+    ]
+  },
+  {
+    "name": "Clément",
+    "twitter": "jQzzzz",
+    "url": "http://clement-galidie.fr",
+    "github": "clementgalidie",
+    "codepen": "jQzz",
+    "gravatar": "https://avatars2.githubusercontent.com/clementgalidie?&s=320",
+    "latlon": [
+      48.861417,
+      2.536463
+    ]
+  },
+  {
+    "name": "Haroen",
+    "twitter": "haroenv",
+    "url": "https://haroen.me",
+    "github": "haroenv",
+    "codepen": "Haroenv",
+    "title": "Source Code Explorer",
+    "email": "haroen@bullg.it",
+    "gravatar": "https://avatars2.githubusercontent.com/u/6270048?v=3&s=320",
+    "latlon": [
+      48.88142495734278,
+      2.349743843078613
+    ],
+    "pro": true
+  },
+  {
+    "name": "Hugo",
+    "twitter": "darbybrown",
+    "url": "http://darbybrown.com",
+    "github": "DarbyBrown",
+    "codepen": "hugo",
+    "gravatar": "https://avatars0.githubusercontent.com/u/4050771?v=3&s=320",
+    "latlon": [
+      50.822841,
+      -0.137045
+    ]
+  },
+  {
+    "name": "Scott",
+    "twitter": "usabilitydick",
+    "url": "http://scottnix.com",
+    "github": "scottnix",
+    "codepen": "scottnix",
+    "gravatar": "https://avatars1.githubusercontent.com/u/936749?v=3&s=320",
+    "latlon": [
+      32.70662,
+      -117.10718
+    ]
+  },
+  {
+    "name": "Jess",
+    "twitter": "J3ssWallace",
+    "url": "http://jessica-wallace.com",
+    "github": "JessWallace94",
+    "title": "Ambitious Gitch | 4SBR",
+    "email": "jess@bullg.it",
+    "gravatar": "https://avatars1.githubusercontent.com/u/6696613?v=3&s=320",
+    "latlon": [
+      51.406638,
+      -0.29985
+    ]
+  },
+  {
+    "name": "pixelass",
+    "url": "http://pixelass.com",
+    "title": "Transdimensional thinker",
+    "github": "pixelass",
+    "gravatar": "https://avatars3.githubusercontent.com/u/1148334?s=460&v=4",
+    "latlon": [
+      53.58386,
+      9.99069
+    ]
+  },
+  {
+    "name": "Hornebom",
+    "twitter": "hornebom",
+    "url": "http://hornebom.com",
+    "github": "hornebom",
+    "codepen": "Hornebom",
+    "gravatar": "https://avatars2.githubusercontent.com/u/7050932?v=3&s=320",
+    "latlon": [
+      51.89641,
+      4.46045
+    ]
+  },
+  {
+    "name": "Nika",
+    "twitter": "nikazawila",
+    "url": "http://nikazawila.com",
+    "github": "nikazawila",
+    "codepen": "nikazawila",
+    "gravatar": "https://avatars0.githubusercontent.com/u/9191638?v=3&s=320",
+    "latlon": [
+      52.5513466,
+      13.3766368
+    ]
+  },
+  {
+    "name": "Ronan",
+    "twitter": "ronanlevesque",
+    "url": "http://ronanlevesque.fr",
+    "github": "ronanlevesque",
+    "codepen": "eskiiss",
+    "gravatar": "https://avatars2.githubusercontent.com/u/2734671?v=3&s=320",
+    "latlon": [
+      48.891234,
+      2.35123
+    ]
+  },
+  {
+    "name": "Yadomi",
+    "twitter": "felixyadomi",
+    "url": "http://yadomilabs.com",
+    "github": "yadomi",
+    "codepen": "yadomi",
+    "title": "Independent Git Cherry Picker (IGCP)",
+    "gravatar": "https://avatars2.githubusercontent.com/yadomi?&s=320",
+    "latlon": [
+      48.861417,
+      2.536463
+    ]
+  },
+  {
+    "name": "Victor",
+    "twitter": "victormours",
+    "url": "http://github.com/victormours/dotfiles",
+    "github": "victormours",
+    "codepen": "victormours",
+    "gravatar": "https://avatars2.githubusercontent.com/victormours?&s=320",
+    "latlon": [
+      48.880744,
+      2.382808
+    ]
+  },
+  {
+    "name": "Michael",
+    "twitter": "mkuehnel",
+    "url": "http://michael-kuehnel.de",
+    "github": "mischah",
+    "email": "mail@michael-kuehnel.de",
+    "title": "Inhouse Hashtag Manager (IHM)",
+    "gravatar": "https://de.gravatar.com/userimage/20290925/c39e4390de871496acfae09ed9d618b5.jpg?size=320",
+    "latlon": [
+      51.31316,
+      9.45977
+    ]
+  },
+  {
+    "name": "Johannes",
+    "twitter": "JohJakob",
+    "url": "http://www.johjakob.de",
+    "github": "JohJakob",
+    "codepen": "JohJakob",
+    "email": "johannes@bullg.it",
+    "title": "Bullshit Experience Designer (BXD)",
+    "gravatar": "https://avatars2.githubusercontent.com/u/9888537?v=3&s=320",
+    "latlon": [
+      51.510738,
+      11.994144
+    ]
+  },
+  {
+    "name": "Linus",
+    "twitter": "lohfu_",
+    "url": "https://lohfu.io",
+    "github": "lohfu",
+    "email": "lohfu@lohfu.io",
+    "gravatar": "https://avatars2.githubusercontent.com/u/7393351?v=3&s=460",
+    "latlon": [
+      55.7120115,
+      13.2135157
+    ]
+  },
+  {
+    "name": "René",
+    "twitter": "rvrng",
+    "url": "http://rene.js.org",
+    "github": "revrng",
+    "email": "rene.viering@gmail.com",
+    "title": "Amazing Keyboard Presser (AKP)",
+    "gravatar": "https://avatars2.githubusercontent.com/revrng",
+    "latlon": [
+      51.3149725,
+      9.3905755
+    ]
+  },
+  {
+    "name": "Richard",
+    "twitter": "neulandkarsten",
+    "url": "http://richardkarsten.de",
+    "github": "richardkarsten",
+    "codepen": "richard_karsten",
+    "email": "richardkarsten@webdasein.net",
+    "title": "continuous integration artist",
+    "gravatar": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/146179/profile/profile-512.jpg",
+    "latlon": [
+      51.510738,
+      11.994144
+    ]
+  },
+  {
+    "name": "Lea",
+    "twitter": "terabaud",
+    "url": "https://terabaud.github.io/",
+    "github": "terabaud",
+    "email": "terabaud@gmail.com",
+    "title": "Senior Creative Ravioli Dispenser (SCRD)",
+    "gravatar": "https://avatars1.githubusercontent.com/u/949950",
+    "latlon": [
+      53.072614,
+      7.423268
+    ]
+  },
+  {
+    "name": "Angela",
+    "github": "agalliat",
+    "codepen": "agalliat",
+    "title": "Chief Executive Pizza Reheater (CEPR)",
+    "gravatar": "https://avatars0.githubusercontent.com/u/42209272",
+    "latlon": [
+      53.472507,
+      7.483259
+    ]
+  }
+]

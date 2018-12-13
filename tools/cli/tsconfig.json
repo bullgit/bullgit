@@ -1,0 +1,9 @@
+{
+  "extends": "@bullgit/config-typescript",
+  "compilerOptions": {
+    "module": "es6",
+    "target": "es6",
+    "rootDir": "",
+    "outDir": "dist"
+  }
+}

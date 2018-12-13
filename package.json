@@ -1,0 +1,43 @@
+{
+  "name": "bullgit",
+  "version": "0.1.0",
+  "description": "Mono repository for @bullgit",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:bullgit/@bullgit"
+  },
+  "homepage": "https://bullg.it",
+  "author": "Gregor Adams <greg@pixelass.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn rollup && yarn website:build",
+    "watch": "yarn rollup && concurrently 'yarn rollup:watch' 'yarn website:watch'",
+    "clean": "lerna run clean && lerna clean -y && rimraf node_modules",
+    "check:updates": "ncu -a; yarn lerna exec 'ncu -a'",
+    "check:changes": "lerna changed",
+    "lint": "lerna exec 'tslint **/*.{ts,tsx}' --stream",
+    "prettier": "lerna exec 'prettier **/*.{ts,tsx} --write' --ignore @bullgit/config-* --stream",
+    "cli:build": "lerna run rollup --scope @bullgit/cli --stream",
+    "cli:watch": "lerna run rollup:watch --scope @bullgit/cli --stream",
+    "website:build": "lerna run build --scope website --stream",
+    "website:watch": "lerna run watch --scope website --stream",
+    "rollup": "lerna run rollup --stream",
+    "rollup:watch": "lerna run rollup:watch --stream --ignore @bullgit/cli",
+    "bullgit:repos": "lerna exec 'bullgit repos --write' --scope website",
+    "gitch": "lerna exec 'gitch' --scope website"
+  },
+  "dependencies": {
+    "concurrently": "4.1.0",
+    "husky": "^1.2.0",
+    "rimraf":"2.6.2",
+    "lerna": "^3.6.0"
+  },
+  "private": true,
+  "workspaces": [
+    "config/*",
+    "site/*",
+    "tools/*",
+    "vendors/*"
+  ]
+}

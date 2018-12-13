@@ -1,0 +1,64 @@
+{
+  "name": "website",
+  "version": "0.1.0",
+  "description": "Bullgit website",
+  "author": "Gregor Adams <greg@pixelass.com>",
+  "license": "MIT",
+  "scripts": {
+    "tsc": "tsc",
+    "clean": "yarn clean:public; yarn clean:lib",
+    "clean:lib": "rimraf lib",
+    "clean:public": "rimraf public",
+    "build": "yarn webpack:prod",
+    "prebuild": "yarn clean && tsc",
+    "postbuild": "yarn clean:lib",
+    "watch": "yarn clean && tsc && yarn webpack:dev",
+    "webpack:dev": "webpack-dev-server --config webpack.dev.js --hot",
+    "webpack:prod": "webpack --config webpack.prod.js"
+  },
+  "devDependencies": {
+    "@bullgit/cli": "0.1.0",
+    "@bullgit/config-babel": "0.1.0",
+    "@bullgit/config-prettier": "0.1.0",
+    "@bullgit/config-stylelint": "0.1.0",
+    "@bullgit/config-typescript": "0.1.0",
+    "@bullgit/config-tslint": "0.1.0",
+    "@bullgit/config-webpack": "0.1.0",
+    "@types/pify": "3.0.2",
+    "@types/mkdirp": "0.5.2",
+    "@types/object-assign": "4.0.30",
+    "cosmiconfig": "5.0.7",
+    "concurrently": "4.1.0",
+    "fbjs": "1.0.0",
+    "object-assign": "4.1.1",
+    "html-react-parser": "0.4.7",
+    "mkdirp": "0.5.1",
+    "pify": "4.0.1",
+    "rimraf": "2.6.2",
+    "typescript": "3.2.2",
+    "webpack": "4.27.1",
+    "webpack-cli": "3.1.2",
+    "webpack-merge": "4.1.5",
+    "webpack-dev-server": "3.1.10"
+  },
+  "dependencies": {
+    "@bullgit/styled-components": "0.1.0",
+    "@types/react": "16.7.13",
+    "@types/react-dom": "16.0.11",
+    "@types/react-hot-loader": "4.1.0",
+    "react": "16.6.3",
+    "react-dom": "16.6.3",
+    "react-hot-loader": "4.3.12"
+  },
+  "prvate": true,
+  "publishConfig": {
+    "access": "private"
+  },
+  "browserslist": [
+    "last 2 chrome versions",
+    "last 2 firefox versions",
+    "last 2 safari versions",
+    "last 2 edge versions",
+    "last 2 ios versions"
+  ]
+}

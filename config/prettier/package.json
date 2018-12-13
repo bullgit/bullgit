@@ -1,0 +1,21 @@
+{
+  "name": "@bullgit/config-prettier",
+  "version": "0.1.0",
+  "description": "sharable prettier configs",
+  "main": "esnext.json",
+  "files": [
+    "config/*",
+    "css.js",
+    "esnext.js",
+    "html.js",
+    "json.js",
+    "markdown.js",
+    "typescript.js",
+    "yaml.js"
+  ],
+  "author": "Gregor Adams <greg@pixelass.com>",
+  "license": "MIT",
+  "dependencies": {
+    "prettier": "1.15.3"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "@bullgit/styled-components",
+  "version": "0.1.0",
+  "description": "Styled-components with bullgit theme",
+  "main": "index.js",
+  "module": "dist/es/index.js",
+  "types": "index.d.ts",
+  "files": [
+    "public/*",
+    "development.js",
+    "production.js"
+  ],
+  "author": "Gregor Adams <greg@pixelass.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn rollup",
+    "clean": "yarn clean:dist;",
+    "clean:dist": "rimraf dist",
+    "prebuild": "yarn clean",
+    "rollup": "rollup -c",
+    "rollup:watch": "rollup -cw"
+  },
+  "devDependencies": {
+    "@bullgit/config-rollup": "0.1.0",
+    "@bullgit/config-tslint": "0.1.0",
+    "@bullgit/config-typescript": "0.1.0",
+    "typescript": "3.2.2"
+  },
+  "dependencies": {
+    "@types/styled-components": "4.1.4",
+    "@types/react": "16.7.13",
+    "@types/react-dom": "16.0.11",
+    "styled-components": "4.1.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
+  "prvate": true,
+  "publishConfig": {
+    "access": "private"
+  }
+}
