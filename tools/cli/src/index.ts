@@ -16,56 +16,6 @@ export interface Gitch {
 	twitter?: string;
 }
 
-export interface Results {
-	gitch: Gitch;
-}
-
-export const gitchFields = [
-	{
-		message: "Name",
-		name: "name",
-		required: true,
-		validate(value: string) {
-			return Boolean(value.trim());
-		}
-	},
-	{
-		message: "Github",
-		name: "github",
-		required: true,
-		validate(value: string) {
-			return Boolean(value.trim());
-		}
-	},
-	{
-		message: "Title",
-		name: "title"
-	},
-	{
-		message: "Email",
-		name: "email"
-	},
-	{
-		message: "Url",
-		name: "url"
-	},
-	{
-		message: "Avatar",
-		name: "gravatar"
-	},
-	{
-		message: "Latitude, Longitude",
-		name: "latlon"
-	},
-	{
-		message: "Codepen",
-		name: "codepen"
-	},
-	{
-		message: "Twitter",
-		name: "twitter"
-	}
-];
 export const compareProps = (prop: string, oldGitch: Gitch, newGitch: Gitch) =>
 	oldGitch[prop] &&
 	(oldGitch[prop].toLowerCase() === newGitch[prop] && newGitch[prop].toLowerCase());

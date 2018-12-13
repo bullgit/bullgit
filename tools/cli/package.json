@@ -44,7 +44,7 @@
     "meow": "5.0.0",
     "enquirer": "2.1.1",
     "json2yaml": "1.1.0",
-    "geocoder": "0.2.3",
+    "node-geocoder": "3.22.0",
     "mkdirp": "0.5.1",
     "octonode": "0.9.5",
     "pify": "4.0.1",

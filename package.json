@@ -25,7 +25,8 @@
     "rollup": "lerna run rollup --stream",
     "rollup:watch": "lerna run rollup:watch --stream --ignore @bullgit/cli",
     "bullgit:repos": "lerna exec 'bullgit repos --write' --scope website",
-    "gitch": "lerna exec 'gitch' --scope website"
+    "bullgit": "node tools/cli/bullgit --outDir site/client/data",
+    "gitch": "node tools/cli/gitch --outDir site/client/data"
   },
   "dependencies": {
     "concurrently": "4.1.0",
