@@ -36,7 +36,9 @@
     "website:watch": "lerna run watch --scope website --stream",
     ">>> PACKAGES <<<": "# Build all packages (excludes cli)",
     "rollup": "lerna run rollup --stream --ignore @bullgit/cli",
-    "rollup:watch": "lerna run rollup:watch --stream --ignore @bullgit/cli"
+    "rollup:watch": "lerna run rollup:watch --stream --ignore @bullgit/cli",
+    "test:build": "cross-env NODE_ENV=producion yarn rollup && yarn cli:build yarn website:build",
+    "test": "yarn test:build && exit 0"
   },
   "dependencies": {
     "concurrently": "4.1.0",
