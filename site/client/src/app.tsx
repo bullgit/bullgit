@@ -24,10 +24,9 @@ const Footer = styled.footer`
 	justify-content: center;
 `;
 
-const HeaderLink = styled<any>(Link)`
+const NavLink = styled<any>(Link)`
 	color: currentColor;
 	text-decoration: none;
-	font-weight: lighter;
 	font-size: 1rem;
 	padding: 0 1rem;
 	display: flex;
@@ -42,23 +41,14 @@ const HeaderLink = styled<any>(Link)`
 	}
 `;
 
-const FooterLink = styled<any>(Link)`
-	color: currentColor;
-	text-decoration: none;
-	font-weight: bold;
-	font-size: 1rem;
-	padding: 0 1rem;
-	display: flex;
-	align-items: center;
-	align-content: center;
-	justify-content: center;
-	
-	&:hover {
-		${({theme: {colors}}) => css`
-			color: ${colors.main};
-		`};
-	}
+const HeaderLink = styled<any>(NavLink)`
+	font-weight: lighter;
 `;
+
+const FooterLink = styled<any>(NavLink)`
+	font-weight: bolder;
+`;
+
 class App extends React.Component {
 	public render() {
 		return (
@@ -67,12 +57,12 @@ class App extends React.Component {
 					<GlobalStyle />
 					<Header>
 						<HeaderLink to={"/"}>Home</HeaderLink>
+						<HeaderLink to={"/repos"}>Repos</HeaderLink>
 						<HeaderLink as={"a"} target="_blank" href={"https://twitter.com/bullgit"}>Twitter</HeaderLink>
 						<HeaderLink as={"a"} target="_blank" href={"https://github.com/bullgit"}>GitHub</HeaderLink>
 						<HeaderLink as={"a"} target="_blank" href={"https://codepen.io/bullgit"}>CodePen</HeaderLink>
 						<HeaderLink as={"a"} target="_blank" href={"https://chat.bullg.it/"}>Chat</HeaderLink>
 						<HeaderLink as={"a"} target="_blank" href={"https://il.bullg.it/"}>Issues</HeaderLink>
-						<HeaderLink to={"/repos"}>Repos</HeaderLink>
 						<HeaderLink as={"a"} target="_blank" to={"https://bullg.it/media"}>Media</HeaderLink>
 					</Header>
 					<Switch>
@@ -87,8 +77,8 @@ class App extends React.Component {
 					</Switch>
 					<Footer>
 						<FooterLink to={"/coc"}>Code of Conduct</FooterLink>
-						<FooterLink as={"a"} target="_blank" href={"https://github.com/bullgit/wiki/wiki"}>Wiki</FooterLink>
 						<FooterLink to={"/map"}>Bullgiverse</FooterLink>
+						<FooterLink as={"a"} target="_blank" href={"https://github.com/bullgit/wiki/wiki"}>Wiki</FooterLink>
 					</Footer>
 				</React.Fragment>
 			</ThemeProvider>

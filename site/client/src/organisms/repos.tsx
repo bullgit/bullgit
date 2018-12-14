@@ -1,6 +1,7 @@
 import React from "react";
 import {
-	BlockLink,
+	BlockLink, Content,
+	InlineLink,
 	OutlineIcon,
 	Repo,
 	RepoCount,
@@ -61,20 +62,30 @@ export const Repos: React.FunctionComponent<ReposProps> = props => {
 					return (
 						<Repo key={repo.id}>
 							<RepoHeader>
-								<RepoCount>{repo.stargazers_count}</RepoCount>
-								<RepoStar>
-									<BlockLink href={repo.stargazers_url}>
-										<OutlineIcon>
-											<path d={icons.star} />
-										</OutlineIcon>
-									</BlockLink>
-								</RepoStar>
 								<RepoName>
 									<BlockLink href={repo.html_url}>{repo.name}</BlockLink>
 								</RepoName>
+								<InlineLink href={repo.stargazers_url}>
+									<RepoStar>
+										<OutlineIcon>
+											<path d={icons.star} />
+										</OutlineIcon>
+									</RepoStar>
+									<RepoCount>{repo.stargazers_count}</RepoCount>
+								</InlineLink>
 							</RepoHeader>
 
 							<RepoDescription>{repo.description}</RepoDescription>
+							<Content as={"details"}>
+								<summary>more info</summary>
+								<Content>
+									<div><strong>Open issues: </strong><span>{repo.open_issues_count}</span></div>
+									<div><strong>Watchers: </strong><span>{repo.watchers_count}</span></div>
+									<div><strong>Forks: </strong><span>{repo.forks_count}</span></div>
+									<div><strong>Created: </strong><span>{repo.created_at}</span></div>
+									<div><strong>Last update: </strong><span>{repo.updated_at}</span></div>
+								</Content>
+							</Content>
 						</Repo>
 					);
 				})}

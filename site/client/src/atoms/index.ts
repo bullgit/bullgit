@@ -119,6 +119,7 @@ export const RepoGhost = styled(Repo)`
 `;
 
 export const RepoName = styled.h2`
+	flex: 1 1 1px;
 	margin: 0;
 	padding: 0 1rem;
 	display: flex;
@@ -136,6 +137,7 @@ export const RepoHeader = styled.header`
 
 export const RepoStar = styled.span`
 	font-size: 1.5rem;
+	margin: 0.5rem 0;
 	font-weight: lighter;
 	display: flex;
 	align-items: center;
@@ -147,12 +149,12 @@ export const RepoDescription = styled.p`
 `;
 
 export const RepoCount = styled.span`
-	padding: 0 0.5rem 0 1rem;
+	padding: 0 0.5rem 0;
 	font-weight: normal;
 	display: flex;
 	align-items: center;
 	align-content: center;
-	font-size: 1.5em;
+	font-size: 0.75em;
 `;
 
 export const Name = styled.h2`

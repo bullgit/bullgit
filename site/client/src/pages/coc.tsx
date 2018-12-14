@@ -1,23 +1,26 @@
 import React from "react";
+import {Card, Content} from "../atoms";
 export const CodeOfConduct = () => {
 	return (
-		<div className=" code-of-conduct">
-			<section className="featured--wrap visual-background text-center text-white">
-				<h1>
-					<span>bullgit</span> Code of Conduct
-				</h1>
-				<h3>A code of conduct for all bullgit members</h3>
-			</section>
+		<Content>
+			<header>
+				<Content>
+					<h1>
+						<span>bullgit</span> Code of Conduct
+					</h1>
+					<h3>A code of conduct for all bullgit members</h3>
+				</Content>
+			</header>
 
-			<div className="content--holder">
-				<div className="content--wrap">
-					<header className="text-center">
-						<small>
-							In the document, “the group” refers to bullgit; “gitch” refers to a
-							bullgit member; “gitches” refers to all bullgit member
-						</small>
-					</header>
-					<section>
+			<div>
+				<Content>
+					<small>
+						In the document, “the group” refers to bullgit; “gitch” refers to a bullgit
+						member; “gitches” refers to all bullgit member
+					</small>
+				</Content>
+				<Card elevation={1}>
+					<Content>
 						<header>
 							<h3>Purpose</h3>
 						</header>
@@ -41,8 +44,10 @@ export const CodeOfConduct = () => {
 								respected.
 							</p>
 						</article>
-					</section>
-					<section>
+					</Content>
+				</Card>
+				<Card elevation={1}>
+					<Content>
 						<header>
 							<h3>Expected Behavior</h3>
 						</header>
@@ -70,8 +75,10 @@ export const CodeOfConduct = () => {
 
 							<p>We expect every gitch to respect those terms. </p>
 						</article>
-					</section>
-					<section>
+					</Content>
+				</Card>
+				<Card elevation={1}>
+					<Content>
 						<header>
 							<h3>Unacceptable Behavior</h3>
 						</header>
@@ -111,8 +118,10 @@ export const CodeOfConduct = () => {
 								for unacceptable behavior publicly online, on social media.
 							</p>
 						</article>
-					</section>
-					<section>
+					</Content>
+				</Card>
+				<Card elevation={1}>
+					<Content>
 						<header>
 							<h3>Consequences of unacceptable Behaviour</h3>
 						</header>
@@ -130,12 +139,12 @@ export const CodeOfConduct = () => {
 								the hate of each other.
 							</p>
 						</article>
-					</section>
-					<footer>
-						<p>@bullgit</p>
-					</footer>
-				</div>
+					</Content>
+				</Card>
+				<Content>
+					<p>@bullgit</p>
+				</Content>
 			</div>
-		</div>
+		</Content>
 	);
 };
