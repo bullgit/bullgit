@@ -1,5 +1,4 @@
 import {css, styled, Theme} from "@bullgit/styled-components";
-import {StyledComponent} from "styled-components";
 
 /**
  * @todo move all atoms to separate @bullgit/<package_name>
@@ -110,17 +109,18 @@ export const Repo = styled(Card).attrs({
 	flex: 1 1 20rem;
 `;
 
-export const RepoGhost = styled(Repo).attrs({
-	elevation: 0
-})`
+export const RepoGhost = styled(Repo)`
 	margin-top: 0;
 	margin-bottom: 0;
+	padding-top: 0;
+	padding-bottom: 0;
 	background: none;
+	box-shadow: none;
 `;
 
 export const RepoName = styled.h2`
 	margin: 0;
-	padding: 0 1rem 0 0;
+	padding: 0 1rem;
 	display: flex;
 	align-items: center;
 	align-content: center;
@@ -136,7 +136,6 @@ export const RepoHeader = styled.header`
 
 export const RepoStar = styled.span`
 	font-size: 1.5rem;
-	padding: 0 0.5rem;
 	font-weight: lighter;
 	display: flex;
 	align-items: center;
@@ -144,25 +143,21 @@ export const RepoStar = styled.span`
 `;
 
 export const RepoDescription = styled.p`
-	padding: 1rem 0.5rem;
+	padding: 1rem;
 `;
 
 export const RepoCount = styled.span`
-	padding: 0 0.5rem;
+	padding: 0 0.5rem 0 1rem;
 	font-weight: normal;
 	display: flex;
 	align-items: center;
 	align-content: center;
-	font-size: 1em;
-	${({theme: {colors}}) => css`
-		background: ${colors.main};
-		color: #fff;
-	`};
+	font-size: 1.5em;
 `;
 
 export const Name = styled.h2`
-	margin: -1.5rem -1rem 0;
-	padding: 1.5rem 0.5rem 0.5rem;
+	margin: 0;
+	padding: 1rem 0.5rem;
 	display: flex;
 	flex: 1;
 	align-items: center;
@@ -214,5 +209,11 @@ export const Icon = styled.svg.attrs({
 	width: 1em;
 	height: 1em;
 	fill: currentColor;
+`;
+
+export const OutlineIcon = styled(Icon)`
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 1px;
 `;
 

@@ -1,7 +1,7 @@
 import React from "react";
 import {
 	BlockLink,
-	Icon,
+	OutlineIcon,
 	Repo,
 	RepoCount,
 	RepoDescription,
@@ -64,9 +64,9 @@ export const Repos: React.FunctionComponent<ReposProps> = props => {
 								<RepoCount>{repo.stargazers_count}</RepoCount>
 								<RepoStar>
 									<BlockLink href={repo.stargazers_url}>
-										<Icon>
+										<OutlineIcon>
 											<path d={icons.star} />
-										</Icon>
+										</OutlineIcon>
 									</BlockLink>
 								</RepoStar>
 								<RepoName>
