@@ -1,5 +1,7 @@
 import {CodeOfConduct} from "./pages/coc";
-import {Home, Map} from "./routings";
+import {Home} from "./pages/home";
+import {Map} from "./pages/map";
+import {Repositories} from "./pages/repos";
 
 export interface Route {
 	location: string,
@@ -16,6 +18,10 @@ export const routes: Routes = [
 	{
 		component: Map,
 		location: "/map",
+	},
+	{
+		component: Repositories,
+		location: "/repos",
 	},
 	{
 		component: CodeOfConduct,

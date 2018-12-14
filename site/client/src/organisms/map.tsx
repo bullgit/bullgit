@@ -1,8 +1,8 @@
 import {styled, theme} from "@bullgit/styled-components";
 import React from "react";
-import {Icon} from "../atoms";
+import {Icon} from "../atoms/index";
 import {icons} from "../atoms/icons";
-import {gitches} from "../data/gitches";
+import {gitches} from "../data/gitches/index";
 
 
 interface AppState {

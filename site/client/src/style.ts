@@ -5,13 +5,8 @@ export const GlobalStyle = createGlobalStyle`
 		margin: 0;
 		font-family: sans-serif;
 		${({theme: {colors}}) => css`
-			background: linear-gradient(
-					-160deg,
-					${colors.background.darker} 25%,
-					${colors.background.dark} 75%
-				)
-				fixed;
-			color: #fff;
+			background: ${colors.background.medium};
+			color: #000;
 		`};
 	}
 	* {
