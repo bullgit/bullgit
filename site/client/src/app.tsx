@@ -24,7 +24,7 @@ const Footer = styled.footer`
 	justify-content: center;
 `;
 
-const HeaderLink = styled(Link)`
+const HeaderLink = styled<any>(Link)`
 	color: currentColor;
 	text-decoration: none;
 	font-weight: lighter;
@@ -42,7 +42,7 @@ const HeaderLink = styled(Link)`
 	}
 `;
 
-const FooterLink = styled(Link)`
+const FooterLink = styled<any>(Link)`
 	color: currentColor;
 	text-decoration: none;
 	font-weight: bold;
@@ -67,13 +67,13 @@ class App extends React.Component {
 					<GlobalStyle />
 					<Header>
 						<HeaderLink to={"/"}>Home</HeaderLink>
-						<HeaderLink to={"https://twitter.com/bullgit"}>Twitter</HeaderLink>
-						<HeaderLink to={"http://github.com/bullgit"}>GitHub</HeaderLink>
-						<HeaderLink to={"http://codepen.io/bullgit"}>CodePen</HeaderLink>
-						<HeaderLink to={"http://chat.bullg.it/"}>Chat</HeaderLink>
-						<HeaderLink to={"http://il.bullg.it/"}>Issues</HeaderLink>
+						<HeaderLink as={"a"} target="_blank" href={"https://twitter.com/bullgit"}>Twitter</HeaderLink>
+						<HeaderLink as={"a"} target="_blank" href={"https://github.com/bullgit"}>GitHub</HeaderLink>
+						<HeaderLink as={"a"} target="_blank" href={"https://codepen.io/bullgit"}>CodePen</HeaderLink>
+						<HeaderLink as={"a"} target="_blank" href={"https://chat.bullg.it/"}>Chat</HeaderLink>
+						<HeaderLink as={"a"} target="_blank" href={"https://il.bullg.it/"}>Issues</HeaderLink>
 						<HeaderLink to={"/repos"}>Repos</HeaderLink>
-						<HeaderLink to={"https://bullg.it/media"}>Media</HeaderLink>
+						<HeaderLink as={"a"} target="_blank" to={"https://bullg.it/media"}>Media</HeaderLink>
 					</Header>
 					<Switch>
 						{routes.map(route => (
@@ -87,7 +87,7 @@ class App extends React.Component {
 					</Switch>
 					<Footer>
 						<FooterLink to={"/coc"}>Code of Conduct</FooterLink>
-						<FooterLink to={"https://github.com/bullgit/wiki/wiki"}>Wiki</FooterLink>
+						<FooterLink as={"a"} target="_blank" href={"https://github.com/bullgit/wiki/wiki"}>Wiki</FooterLink>
 						<FooterLink to={"/map"}>Bullgiverse</FooterLink>
 					</Footer>
 				</React.Fragment>
