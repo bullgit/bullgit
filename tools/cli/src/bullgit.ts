@@ -19,7 +19,7 @@ const bullgitCli = async () => {
 				writeRepos(outFile);
 				log.info("Repos written to File System");
 			} else if (flags.log) {
-				log.info(stringify(await getRepos()));
+				log.info(stringify([...(await getRepos()), ...(await getRepos(2))]));
 			} else {
 				log.warn("No flag provided");
 			}

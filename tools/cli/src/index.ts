@@ -42,12 +42,12 @@ export const updateGitch = (data: Gitch[], gitch) =>
 	data.map(oldGitch => (!compare(oldGitch, gitch) ? oldGitch : gitch));
 
 const client = github.client();
-export const getRepos = async () => {
+export const getRepos = async (page = 1) => {
 	const bullgitOnGithub = client.user("bullgit");
-	const [repos] = await bullgitOnGithub.reposAsync({ per_page: 200 });
+	const [repos] = await bullgitOnGithub.reposAsync({ page, per_page: 100 });
 	return repos;
 };
 export const writeRepos = async outFile => {
-	const repos = await getRepos();
+	const repos = [...(await getRepos()), ...(await getRepos(2))];
 	await writeToFile(outFile, stringify(repos));
 };
