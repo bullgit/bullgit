@@ -11,7 +11,7 @@ This repo provides two cli tools:
 * `bullgit`: handles git related tasks
   * `repos`: gets repos from the bullgit org
     * `--log`: logs the result to the console
-    * `--write`: updates the repos.jon file
+    * `--write`: updates the repos.json file
   * `members`: (n.a.)
 * `gitch`: handles member related tasks
   * `add`: adds a new gitch to the bullgiverse
