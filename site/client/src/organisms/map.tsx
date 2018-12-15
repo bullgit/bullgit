@@ -1,8 +1,6 @@
 import {styled, theme} from "@bullgit/styled-components";
 import React from "react";
-import {Icon} from "../atoms/index";
-import {icons} from "../atoms/icons";
-import {gitches} from "../data/gitches/index";
+import {gitches} from "../data/gitches";
 
 
 interface AppState {
@@ -12,23 +10,11 @@ interface AppState {
 	clusterMarker: any;
 }
 
-const BigIcon = styled(Icon)`
-	font-size: 3rem;
-`;
-
 const AvatarMarker = styled.img`
 	height: 3rem;
 	width: 3rem;
 	border-radius: 50%;
 `;
-
-const MapMarker = () => {
-	return (
-		<BigIcon>
-			<path d={icons.marker} />
-		</BigIcon>
-	);
-};
 
 const Noop = (props: any) => null;
 
@@ -89,11 +75,7 @@ export class BullgitMap extends React.Component<{}, AppState> {
 									key={gitch.github}
 									coordinates={[lon, lat]}
 									anchor={gitch.gravatar ? "center" : "bottom"}>
-									{gitch.gravatar ? (
-										<AvatarMarker src={gitch.gravatar} />
-									) : (
-										<MapMarker />
-									)}
+									<AvatarMarker src={gitch.gravatar} />
 								</Marker>
 						);
 					})}

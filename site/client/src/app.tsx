@@ -1,53 +1,12 @@
-import {css, styled, theme, ThemeProvider} from "@bullgit/styled-components";
+import {styled, theme, ThemeProvider} from "@bullgit/styled-components";
 import React from "react";
 import {hot} from "react-hot-loader";
 import {Route, Switch} from "react-router";
 import {Link} from "react-router-dom";
+import {Icon} from "./atoms/icon";
+import {Logo} from "./atoms/logo";
 import {routes} from "./routes";
 import {GlobalStyle} from "./style";
-
-const Header = styled.header`
-	height: 3rem;
-	margin: 0;
-	display: flex;
-	justify-content: flex-end;
-	${({theme: {colors}}) => css`
-		background: ${colors.background.light};
-		color: #000;
-	`};
-`;
-
-const Footer = styled.footer`
-	height: 2rem;
-	margin: 0;
-	display: flex;
-	justify-content: center;
-`;
-
-const NavLink = styled<any>(Link)`
-	color: currentColor;
-	text-decoration: none;
-	font-size: 1rem;
-	padding: 0 1rem;
-	display: flex;
-	align-items: center;
-	align-content: center;
-	justify-content: center;
-	
-	&:hover {
-		${({theme: {colors}}) => css`
-			color: ${colors.main};
-		`};
-	}
-`;
-
-const HeaderLink = styled<any>(NavLink)`
-	font-weight: lighter;
-`;
-
-const FooterLink = styled<any>(NavLink)`
-	font-weight: bolder;
-`;
 
 class App extends React.Component {
 	public render() {
@@ -55,16 +14,42 @@ class App extends React.Component {
 			<ThemeProvider theme={theme}>
 				<React.Fragment>
 					<GlobalStyle />
-					<Header>
-						<HeaderLink to={"/"}>Home</HeaderLink>
-						<HeaderLink to={"/repos"}>Repos</HeaderLink>
-						<HeaderLink as={"a"} target="_blank" href={"https://twitter.com/bullgit"}>Twitter</HeaderLink>
-						<HeaderLink as={"a"} target="_blank" href={"https://github.com/bullgit"}>GitHub</HeaderLink>
-						<HeaderLink as={"a"} target="_blank" href={"https://codepen.io/bullgit"}>CodePen</HeaderLink>
-						<HeaderLink as={"a"} target="_blank" href={"https://chat.bullg.it/"}>Chat</HeaderLink>
-						<HeaderLink as={"a"} target="_blank" href={"https://il.bullg.it/"}>Issues</HeaderLink>
-						<HeaderLink as={"a"} target="_blank" to={"https://bullg.it/media"}>Media</HeaderLink>
-					</Header>
+					<header>
+						<nav>
+							<Link to={"/"}><Logo/> Home</Link>
+							<Link to={"/repos"}>Repos</Link>
+						</nav>
+						<ul>
+							<li>
+								<a target="_blank" href={"https://twitter.com/bullgit"}>
+									<Icon iconName="twitter" iconColor="#1da1f2" /> Twitter
+								</a>
+							</li>
+							<li>
+								<a target="_blank" href={"https://codepen.io/bullgit"}>
+									<Icon iconName="codepen" iconColor="#181818" /> CodePen
+								</a>
+							</li>
+							<li>
+								<a target="_blank" href={"https://github.com/bullgit"}>
+									<Icon iconName="github" iconColor="#333" /> GitHub
+								</a>
+							</li>
+							<li>
+								<a target="_blank" href={"https://il.bullg.it/"}>
+									<Icon iconName="github" iconColor="#333" /> Issues
+								</a>
+							</li>
+							<li>
+								<a target="_blank" href={"https://chat.bullg.it/"}>
+									<Icon iconName="slack" iconColor="#e01563" /> Chat
+								</a>
+							</li>
+							<li><a target="_blank" href={"https://bullg.it/media"}>
+								Media
+							</a></li>
+						</ul>
+					</header>
 					<Switch>
 						{routes.map(route => (
 							<Route
@@ -75,11 +60,13 @@ class App extends React.Component {
 							/>
 						))}
 					</Switch>
-					<Footer>
-						<FooterLink to={"/coc"}>Code of Conduct</FooterLink>
-						<FooterLink to={"/map"}>Bullgiverse</FooterLink>
-						<FooterLink as={"a"} target="_blank" href={"https://github.com/bullgit/wiki/wiki"}>Wiki</FooterLink>
-					</Footer>
+					<footer>
+						<Link to={"/coc"}>Code of Conduct</Link>
+						<Link to={"/map"}>Bullgiverse</Link>
+						<a target="_blank" href={"https://github.com/bullgit/wiki/wiki"}>
+							Wiki
+						</a>
+					</footer>
 				</React.Fragment>
 			</ThemeProvider>
 		);

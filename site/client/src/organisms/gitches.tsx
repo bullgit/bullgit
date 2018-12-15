@@ -33,26 +33,26 @@ export const Gitches = () => {
 										<a target="_blank" href={`mailto:${gitch.email}`}>
 											{gitch.email}
 										</a>
-									)}
+									)}{" "}
 									{gitch.url && (
 										<a target="_blank" href={gitch.url}>
 											{gitch.url}
 										</a>
-									)}
+									)}{" "}
 									{gitch.github && (
 										<a
 											target="_blank"
 											href={`https://github.com/${gitch.github}`}>
 											{gitch.github}
 										</a>
-									)}
+									)}{" "}
 									{gitch.twitter && (
 										<a
 											target="_blank"
 											href={`https://twitter.com/${gitch.twitter}`}>
 											{gitch.twitter}
 										</a>
-									)}
+									)}{" "}
 									{gitch.codepen && (
 										<a
 											target="_blank"

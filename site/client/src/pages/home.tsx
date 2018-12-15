@@ -1,5 +1,5 @@
 import React from "react";
-import {Gitches} from "../organisms";
+import {Gitches} from "../organisms/gitches";
 import {Repos} from "../organisms/repos";
 
 
