@@ -5,14 +5,15 @@
   "license": "MIT",
   "author": "Gregor Adams <greg@pixelass.com>",
   "scripts": {
-    "prebuild": "yarn clean && tsc",
-    "build": "yarn webpack:prod",
-    "postbuild": "yarn clean:lib",
+    "babel": "babel src --out-dir lib --extensions '.ts,.tsx'",
+    "babel:prod": "cross-env NODE_ENV=production babel src --out-dir lib --extensions '.ts,.tsx'",
+    "prebuild": "cross-env NODE_ENV=production yarn clean && yarn babel:prod",
+    "build": "cross-env NODE_ENV=production yarn webpack:prod",
+    "__postbuild": "yarn clean:lib",
     "clean": "yarn clean:public; yarn clean:lib",
     "clean:lib": "rimraf lib",
     "clean:public": "rimraf public",
-    "tsc": "tsc",
-    "watch": "yarn clean && tsc && yarn webpack:dev",
+    "watch": "yarn clean && yarn babel && yarn webpack:dev",
     "webpack:dev": "webpack-dev-server --config webpack.dev.js --hot",
     "webpack:prod": "webpack --config webpack.prod.js"
   },
@@ -36,6 +37,8 @@
     "styled-components": "^4.1.2"
   },
   "devDependencies": {
+    "@babel/core": "7.2.0",
+    "@babel/cli": "7.2.0",
     "@bullgit/cli": "0.1.0",
     "@bullgit/config-babel": "0.1.0",
     "@bullgit/config-prettier": "0.1.0",

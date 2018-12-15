@@ -16,12 +16,13 @@ const StyledSidebar = styled("aside")<StyledSidebarProps>`
 	min-width: 15rem;
 	max-width: 50vw;
 	overflow: auto;
-	background: whitesmoke;
-	color: black;
 	padding: ${VROW_GAP} 0;
-
 	transition: transform 0.25s ease-in-out;
 	transform: translate3d(${(props: any) => (props.isOpen ? "100%" : 0)}, 0, 0);
+	${({theme: {colors}}) => css`
+		background: ${colors.background.light};
+		color: #000;
+	`};
 `;
 
 const Toggle = styled(Button)`
@@ -31,8 +32,13 @@ const Toggle = styled(Button)`
 	left: ${VGRID_PADDING};
 	margin: 0;
 	box-shadow: none;
-	background: whitesmoke;
-	color: black;
+	${({theme: {colors}}) => css`
+		background: ${colors.background.dark};
+		color: #fff;
+		&:hover {
+			background: ${colors.background.darker};
+		}
+	`};
 `;
 
 export interface SidebarProps {

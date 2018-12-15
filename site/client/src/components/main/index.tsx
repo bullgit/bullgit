@@ -5,7 +5,10 @@ import {GridProps} from "../grid-system/grid";
 
 export type StyledMainProps =  React.HTMLAttributes<HTMLMainElement> ;
 
-const StyledMain = styled("main")<StyledMainProps>``;
+const StyledMain = styled("main")<StyledMainProps>`
+	flex: 1 1 1px;
+	position: relative;
+`;
 
 export type MainProps = GridProps;
 

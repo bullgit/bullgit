@@ -10,8 +10,11 @@ const StyledHeader = styled(Box)`
 	top: 0;
 	left: 0;
 	right: 0;
-	background: whitesmoke;
-	color: black;
+	${({theme: {colors}}) => css`
+		background: ${colors.background.dark};
+		color: #fff;
+	`};
+
 `;
 
 const HeaderText = styled.div`

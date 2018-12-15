@@ -1,6 +1,11 @@
 import React from "react";
+import {BoxAY, BoxY, Column, Row} from "../components/grid-system";
+import Icon from "../components/icon";
+import {BlockLink, InlineLink} from "../components/links";
+import Copy from "../components/text/copy";
+import Headline from "../components/text/headline";
+import Tile from "../components/tile";
 import {repos} from "../data/repos";
-import {Icon} from "../atoms/icon";
 
 export type Sorting =
 	| "stargazers_count"
@@ -43,49 +48,60 @@ export const Repos: React.FunctionComponent<ReposProps> = props => {
 	const filteredRepos = show ? sortedRepos.filter((x, i) => i < show) : sortedRepos;
 	return (
 		<React.Fragment>
-			<div>
-				{filteredRepos.map(repo => {
-					return (
-						<div key={repo.id}>
-							<header>
-								<h2>
-									<a href={repo.html_url}>{repo.name}</a>
-								</h2>
-								<a href={repo.stargazers_url}>
-									<Icon iconName="star" iconColor="#F57F17" />{" "}
-									{repo.stargazers_count}
-								</a>
-							</header>
-							<section>{repo.description}</section>
-							<details>
-								<summary>more info</summary>
-								<section>
-									<div>
-										<strong>Open issues: </strong>
-										<span>{repo.open_issues_count}</span>
-									</div>
-									<div>
-										<strong>Watchers: </strong>
-										<span>{repo.watchers_count}</span>
-									</div>
-									<div>
-										<strong>Forks: </strong>
-										<span>{repo.forks_count}</span>
-									</div>
-									<div>
-										<strong>Created: </strong>
-										<span>{repo.created_at}</span>
-									</div>
-									<div>
-										<strong>Last update: </strong>
-										<span>{repo.updated_at}</span>
-									</div>
-								</section>
-							</details>
-						</div>
-					);
-				})}
-			</div>
+			<Column fullWidth={true}>
+				<Row>
+					{filteredRepos.map(repo => {
+						return (
+							<Column key={repo.id} columnSpan={[4]}>
+								<Tile removePadding={"top"}>
+									<Row as={"header"}>
+										<Column columnSpan={[3]}>
+											<Headline as={"h3"}>
+												<InlineLink href={repo.html_url}>{repo.name.match("eeeeee") ? "eeeee..." : repo.name}</InlineLink>
+											</Headline>
+										</Column>
+										<Column>
+											<BlockLink href={repo.stargazers_url}>
+												<BoxY>
+													<Icon iconName="star" />{" "}
+													{repo.stargazers_count}
+												</BoxY>
+											</BlockLink>
+										</Column>
+
+									</Row>
+									<Copy>{repo.description && repo.description.match("eeeeee") ? "eeeee..." : repo.description}</Copy>
+									<BoxAY as={"details"}>
+										<BoxY as={"summary"}>more info</BoxY>
+										<section>
+											<Copy>
+												<strong>Open issues: </strong>
+												<span>{repo.open_issues_count}</span>
+											</Copy>
+											<Copy>
+												<strong>Watchers: </strong>
+												<span>{repo.watchers_count}</span>
+											</Copy>
+											<Copy>
+												<strong>Forks: </strong>
+												<span>{repo.forks_count}</span>
+											</Copy>
+											<Copy>
+												<strong>Created: </strong>
+												<span>{repo.created_at}</span>
+											</Copy>
+											<Copy>
+												<strong>Last update: </strong>
+												<span>{repo.updated_at}</span>
+											</Copy>
+										</section>
+									</BoxAY>
+								</Tile>
+							</Column>
+						);
+					})}
+				</Row>
+			</Column>
 		</React.Fragment>
 	);
 };
