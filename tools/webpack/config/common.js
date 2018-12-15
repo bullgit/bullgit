@@ -11,7 +11,7 @@ module.exports = async (env, argv) => {
 	const cwd = process.cwd();
 	const CWD = path.resolve(cwd);
 	const SRC = path.resolve(cwd, "src");
-	const LIB = path.resolve(cwd, "lib/src");
+	const LIB = path.resolve(cwd, "lib");
 	const PUBLIC = path.resolve(cwd, "public");
 	return {
 		entry: {
@@ -53,7 +53,7 @@ module.exports = async (env, argv) => {
 				const alwaysWriteToDisk = true;
 				const { default: App } = require(path.resolve(LIB, "app.js"));
 				const sheet = new styled.ServerStyleSheet();
-				const appRoutes = path.resolve(CWD, "lib/src/routes.js")
+				const appRoutes = path.resolve(LIB, "routes.js")
 				const {routes} = require(appRoutes);
 				const pages = routes.map(page => {
 					const component = React.createElement(StaticRouter, {

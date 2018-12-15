@@ -12,7 +12,7 @@
   "license": "MIT",
   "scripts": {
     ">>> ROOT BUILDS <<<": "# Run all necessary tasks to build or develop",
-    "build": "cross-env NODE_ENV=producion yarn rollup && yarn cli:build && yarn bullgit repos --write && yarn website:build",
+    "build": "cross-env NODE_ENV=production yarn rollup && yarn cli:build && yarn bullgit repos --write && yarn website:build",
     "prebuild": "lerna run clean",
     "watch": "yarn rollup && concurrently 'yarn rollup:watch' 'yarn website:watch'",
     ">>> CLEANUPS <<<": "# Clean or reset the repository",
