@@ -2,20 +2,20 @@
   "name": "@bullgit/config-rollup",
   "version": "0.1.0",
   "description": "extendable rollup configs",
-  "main": "esnext.js",
+  "license": "MIT",
+  "author": "Gregor Adams <greg@pixelass.com>",
   "files": [
     "config/*",
     "esnext.js",
     "typescript.js"
   ],
-  "author": "Gregor Adams <greg@pixelass.com>",
-  "license": "MIT",
+  "main": "esnext.js",
   "dependencies": {
     "@babel/core": "7.2.0",
     "rollup": "0.67.4",
     "rollup-plugin-babel": "4.1.0",
-    "rollup-plugin-typescript2": "0.18.1",
     "rollup-plugin-json": "3.1.0",
+    "rollup-plugin-typescript2": "0.18.1",
     "typescript": "3.2.2"
   }
 }

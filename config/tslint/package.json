@@ -2,13 +2,13 @@
   "name": "@bullgit/config-tslint",
   "version": "0.1.0",
   "description": "extendable tslint configs",
-  "main": "tslint.js",
+  "license": "MIT",
+  "author": "Gregor Adams <greg@pixelass.com>",
   "files": [
     "config/*",
     "tslint.js"
   ],
-  "author": "Gregor Adams <greg@pixelass.com>",
-  "license": "MIT",
+  "main": "tslint.js",
   "dependencies": {
     "prettier": "1.15.3",
     "tslint": "5.11.0",
