@@ -1,6 +1,6 @@
 import {css, styled} from "@bullgit/styled-components";
 import React from "react";
-import {BoxAY, BoxX, BoxY, Column, Row, Box} from "../components/grid-system";
+import {Box, BoxAY, BoxY, Column, Row} from "../components/grid-system";
 import Icon from "../components/icon";
 import {BlockLink} from "../components/links";
 import Copy from "../components/text/copy";
@@ -8,36 +8,75 @@ import Headline from "../components/text/headline";
 import Tile from "../components/tile";
 import {repos} from "../data/repos";
 
-export type Sorting =
-	| "stargazers_count"
-	| "open_issues_count"
-	| "name"
-	| "-stargazers_count"
-	| "-open_issues_count"
-	| "-name";
-export interface ReposProps {
-	show?: number;
-	sortBy?: Sorting[];
+type Primer = (...args: any[]) => number;
+interface Config {
+	name: string;
+	primer?: Primer;
+	reverse?: boolean;
 }
 
-const sortByFields = (...fields) => {
+interface SortConfig extends Config {
+	name: string;
+}
+
+export interface ReposProps {
+	show?: number;
+	sortBy?: Array<SortConfig|string>;
+}
+
+type Comparator = number | string;
+
+const compare = (a: Comparator, b: Comparator) => {
+	if (a === b) {
+		return 0;
+	}
+	if (typeof a === "string" && typeof b === "string") {
+		return a.toLowerCase() < b.toLowerCase() ? -1 : 1;
+	}
+	return a < b ? -1 : 1;
+};
+
+const getCmpFunc = ({primer, reverse}: Config) => {
+	const cmp = primer ?
+		(a, b) => compare(primer(a), primer(b))
+		: compare;
+	if (reverse) {
+		return (a, b) => -1 * cmp(a, b);
+	}
+	return cmp;
+};
+const sortByFields = (...args: Array<SortConfig|string>) => {
+	const fields = [];
+	const {length} = args;
+
+	for (let i = 0; i < length; i++) {
+		const field = args[i];
+		const name = field;
+		const cmp = compare;
+		if (typeof field === "object") {
+			fields.push({
+				cmp: getCmpFunc(field),
+				name: field.name
+			});
+		} else {
+			fields.push({name, cmp});
+		}
+
+	}
+
 	return (a, b) => {
-		return fields
-			.map(field => {
-				const dir = field[0] === "-" ? -1 : 1;
-				const key = dir < 1 ? field.substring(1) : field;
-				if (a[key] > b[key]) {
-					return dir;
-				}
-				if (a[key] < b[key]) {
-					return -1 * dir;
-				}
-				return 0;
-			})
-			.reduce((previous, next) => {
-				return previous ? previous : next;
-			}, 0);
-	};
+		let result;
+		for (let i = 0; i < length; i++) {
+			result = 0;
+			const field = fields[i];
+			const {name, cmp} = field;
+			result = cmp(a[name], b[name]);
+			if (result !== 0) {
+				break
+			};
+		}
+		return result;
+	}
 };
 
 const Stargazers = styled(BoxY)`

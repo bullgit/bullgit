@@ -3,9 +3,9 @@ import React from "react";
 import {BoxAY, BoxY, Column, Grid, Spacer} from "../components/grid-system";
 import {defaultGrid} from "../components/grid-system/config";
 import Main from "../components/main";
+import Copy from "../components/text/copy";
 import {Gitches} from "../organisms/gitches";
 import {Repos} from "../organisms/repos";
-import Copy from "../components/text/copy";
 
 const Gitchmunity = styled.div`
 	${({theme: {colors}}) => css`
@@ -38,12 +38,12 @@ export const Home = () => {
 			<Spacer/>
 			<Stage>
 				<Grid {...defaultGrid} columnCount={[4, 4]} maxWidth={960}>
-					<Repos show={1} sortBy={["-stargazers_count", "name"]} />
+					<Repos show={1} sortBy={[{name: "stargazers_count", reverse: true}, "full_name"]} />
 				</Grid>
 			</Stage>
 			<div>
 				<Grid {...defaultGrid} columnCount={[4, 8]} maxWidth={960}>
-					<Repos show={6} sortBy={["name"]} />
+					<Repos show={6} sortBy={["full_name", "stargazers_count"]} />
 				</Grid>
 			</div>
 			<Gitchmunity>

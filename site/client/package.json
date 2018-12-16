@@ -9,7 +9,7 @@
     "babel:prod": "cross-env NODE_ENV=production babel src --out-dir lib --extensions '.ts,.tsx'",
     "prebuild": "cross-env NODE_ENV=production yarn clean && yarn babel:prod",
     "build": "cross-env NODE_ENV=production yarn webpack:prod",
-    "__postbuild": "yarn clean:lib",
+    "postbuild": "yarn clean:lib",
     "clean": "yarn clean:public; yarn clean:lib",
     "clean:lib": "rimraf lib",
     "clean:public": "rimraf public",
