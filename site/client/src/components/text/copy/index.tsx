@@ -9,6 +9,7 @@ export interface StyledCopyProps extends React.HTMLAttributes<HTMLParagraphEleme
 
 const StyledCopy = styled("p")<StyledCopyProps>`
 	margin: 0;
+	white-space: unset;
 	${(props) => {
 		switch (props.textSize) {
 			case "large":
@@ -50,7 +51,9 @@ const StyledCopy = styled("p")<StyledCopyProps>`
 `;
 
 
-export type CopyProps = StyledCopyProps;
+export interface CopyProps extends StyledCopyProps {
+	as?: "pre"
+};
 
 const Copy: React.FunctionComponent<CopyProps> = props => {
 	return <StyledCopy {...props} />;

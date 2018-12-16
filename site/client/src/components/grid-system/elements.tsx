@@ -34,6 +34,14 @@ export const BoxAXY = styled(Box)<BaseProps>`
 	margin: 0 calc(${VCOLUMN_PADDING} * -1);
 `;
 
-export const Spacer = styled("div")`
-	height: ${VROW_GAP};
+export interface SpacerProps {
+	rows?: number;
+}
+
+export const Spacer = styled("div")<SpacerProps>`
+	height: calc(${VROW_GAP} * ${props => props.rows});
 `;
+
+Spacer.defaultProps = {
+	rows: 1
+};

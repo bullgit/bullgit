@@ -1,23 +1,24 @@
 <!doctype html>
 <html>
   <head>
-    <title></title>
+    <title><%= title %></title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700|Source+Sans+Pro:300,400,700" rel="stylesheet">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="description" />
-    <meta name="keywords" />
-    <meta property="og:title" />
-    <meta property="og:site_name" />
-    <meta property="og:description" />
-    <meta property="og:see_also" />
-    <meta property="og:url" />
-    <meta property="og:image" />
-    <meta name="twitter:title" />
-    <meta name="twitter:description" />
-    <meta name="twitter:card" />
-    <meta name="twitter:url" />
-    <meta name="twitter:image" />
-    <link rel="canonical" />
+    <meta name="description" content="<%= description %>"/>
+    <meta name="keywords" content="<%= keywords %>"/>
+    <meta property="og:title" content="<%= title %>"/>
+    <meta property="og:site_name" content="Bullgit"/>
+    <meta property="og:description" content="<%= description %>"/>
+    <meta property="og:see_also" content="https://bullg.it"/>
+    <meta property="og:url" content="https://bullg.it<%= location %>"/>
+    <meta property="og:image" content="https://bullg.it/media/pixels/bullgit-logo.png"/>
+    <meta name="twitter:title" content="<%= title %>"/>
+    <meta name="twitter:description" content="<%= description %>"/>
+    <meta name="twitter:card" content="<%= summary %>"/>
+    <meta name="twitter:url" content="<%= location %>"/>
+    <meta name="twitter:image" content="https://bullg.it/media/pixels/bullgit-logo.png"/>
+    <link rel="canonical" content="https://bullg.it<%= location %>"/>
     <%= head %>
   </head>
   <body>

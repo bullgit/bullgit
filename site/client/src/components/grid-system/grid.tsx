@@ -77,24 +77,6 @@ const GlobalStyle: any = createGlobalStyle<GlobalStyleProps>`
 		)};
 	`};
 	}
-	html {
-		position: relative;
-		line-height: 1.5;
-		font-size: 1em;
-		text-size-adjust: none;
-	}
-	body {
-		margin: 0;
-		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-	}
-	*, *::before, *::after {
-		box-sizing: border-box;
-		line-height: inherit;
-		font-family: inherit;
-	}
-	#app {
-		min-height: 100vh;
-	}
 `;
 
 export interface GridProps extends StyledGridProps {

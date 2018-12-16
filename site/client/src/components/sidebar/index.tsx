@@ -33,10 +33,11 @@ const Toggle = styled(Button)`
 	margin: 0;
 	box-shadow: none;
 	${({theme: {colors}}) => css`
-		background: ${colors.background.dark};
+		background: ${colors.main};
 		color: #fff;
 		&:hover {
-			background: ${colors.background.darker};
+			background: ${colors.background.dark};
+			color: #fff;
 		}
 	`};
 `;

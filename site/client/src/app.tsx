@@ -10,9 +10,8 @@ import {Box, BoxAYX, Column, Grid, Row} from "./components/grid-system";
 import {defaultGrid} from "./components/grid-system/config";
 import Header from "./components/header";
 import Icon from "./components/icon";
-import {BlockLink, InlineLink} from "./components/links";
+import {BlockLink} from "./components/links";
 import {List, ListItem} from "./components/list";
-import Main from "./components/main";
 import Sidebar from "./components/sidebar";
 
 import {routes} from "./routes";
@@ -67,24 +66,32 @@ const Menu = () => {
 	);
 };
 
+const Bullheader = styled(Header)`
+	${({theme: {colors}}) => css`
+		background: ${colors.background.medium};
+		color: #000;
+	`};
+
+`;
+
 const NavItem = styled(BlockLink)`
-	${props => css`
-		background: ${props.theme.colors.background.dark};
-		color: #fff;
+	${({theme: {colors}}) => css`
+		background: ${colors.background.medium};
+		color: #000;
 		&:hover {
-			background: ${props.theme.colors.background.darker};
+			background: ${colors.background.lighter};
 		}
 	`};
 	${BoxAYX} {
 		background: inherit;
-		color: #fff;
+		font-weight: bold;
 	}
 `;
 
 const Footer = styled.footer`
-	${props => css`
-		background: ${props.theme.colors.background.darker};
-		color: #fff;
+	${({theme: {colors}}) => css`
+		background: ${colors.background.medium};
+		color: #000;
 	`};
 `;
 
@@ -98,7 +105,7 @@ class App extends React.Component {
 					)}
 					<GlobalStyle />
 					<React.Fragment>
-						<Header>
+						<Bullheader>
 							<Column>
 								<Row as={"nav"}>
 									<NavItem as={Link} to={"/"}>
@@ -109,7 +116,7 @@ class App extends React.Component {
 									</NavItem>
 								</Row>
 							</Column>
-						</Header>
+						</Bullheader>
 						<Sidebar>
 							<Menu />
 						</Sidebar>

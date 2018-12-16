@@ -22,23 +22,26 @@ const Stage = styled(BoxAY)`
 export const Home = () => {
 	return (
 		<React.Fragment>
-			<Spacer/>
+			<Spacer rows={3}/>
 			<BoxY>
 				<Grid {...defaultGrid} columnCount={[4, 4]} maxWidth={960}>
 					<Column fullWidth={true}>
-						<Copy>
-							bullgit is a developer crew & a bunch of 31 friends from all around the
-							world. We're united in our search for the most crazy, fun and useless web
-							projects. A family working on making a ['crazier', 'funnier', 'better'] web,
-							step by step.
+						<Copy as={"pre"}>
+							bullgit is a developer crew & a bunch of 31 friends from all around
+							the world. We're united in our search for the most crazy, fun and
+							useless web projects. A family working on making a ['crazier',
+							'funnier', 'better'] web, step by step.
 						</Copy>
 					</Column>
 				</Grid>
 			</BoxY>
-			<Spacer/>
+			<Spacer rows={3}/>
 			<Stage>
 				<Grid {...defaultGrid} columnCount={[4, 4]} maxWidth={960}>
-					<Repos show={1} sortBy={[{name: "stargazers_count", reverse: true}, "full_name"]} />
+					<Repos
+						show={1}
+						sortBy={[{name: "stargazers_count", reverse: true}, "full_name"]}
+					/>
 				</Grid>
 			</Stage>
 			<div>

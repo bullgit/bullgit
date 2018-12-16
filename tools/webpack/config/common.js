@@ -1,4 +1,3 @@
-const globby = require("globby");
 const HtmlWebpackHarddiskPlugin = require("html-webpack-harddisk-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
@@ -55,7 +54,7 @@ module.exports = async (env, argv) => {
 				const sheet = new styled.ServerStyleSheet();
 				const appRoutes = path.resolve(LIB, "routes.js")
 				const {routes} = require(appRoutes);
-				const pages = routes.map(page => {
+				const pages = routes.map((page) => {
 					const component = React.createElement(StaticRouter, {
 							location: page.location,
 							context: {}
@@ -64,8 +63,7 @@ module.exports = async (env, argv) => {
 					const app = ReactDOMServer.renderToString((component));
 					const head = sheet.getStyleTags();
 					const templateParameters = {
-						app,
-						head
+						...page, app, head
 					};
 					const outputFile = path.join(page.location, filename).replace(/^\//, "");
 					return new HtmlWebpackPlugin({

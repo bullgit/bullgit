@@ -5,6 +5,7 @@ import {List, ListItem} from "../components/list";
 import Main from "../components/main";
 import Copy from "../components/text/copy";
 import Headline from "../components/text/headline";
+import Tile from "../components/tile";
 
 export const CodeOfConduct = () => {
 	return (
@@ -27,7 +28,7 @@ export const CodeOfConduct = () => {
 					<header>
 						<Headline as={"h3"}>Purpose</Headline>
 					</header>
-					<article>
+					<Tile as={"article"}>
 						<Copy>
 							The goal of this document is to define the best way to interact with
 							each other in the group as well as with everyone online.
@@ -45,13 +46,13 @@ export const CodeOfConduct = () => {
 							participation in the community, as well as publicly. And the
 							consequences that would result if the Code of Conduct isn’t respected.
 						</Copy>
-					</article>
+					</Tile>
 				</section>
 				<section>
 					<header>
 						<Headline as={"h3"}>Expected Behavior</Headline>
 					</header>
-					<article>
+					<Tile as={"article"}>
 						<Copy>
 							We are an open community, we love all of our gitches and we prone
 							respect and love.
@@ -73,13 +74,13 @@ export const CodeOfConduct = () => {
 						</Copy>
 
 						<Copy>We expect every gitch to respect those terms. </Copy>
-					</article>
+					</Tile>
 				</section>
 				<section>
 					<header>
 						<Headline as={"h3"}>Unacceptable Behavior</Headline>
 					</header>
-					<article>
+					<Tile as={"article"}>
 						<Copy>
 							<strong>Unacceptable behaviors include:</strong>
 						</Copy>
@@ -112,13 +113,13 @@ export const CodeOfConduct = () => {
 							As we are evolving on the web, the previous rules are also applied for
 							unacceptable behavior publicly online, on social media.
 						</Copy>
-					</article>
+					</Tile>
 				</section>
 				<section>
 					<header>
 						<Headline as={"h3"}>Consequences of unacceptable Behaviour</Headline>
 					</header>
-					<article>
+					<Tile as={"article"}>
 						<Copy>
 							If a gitch do not respect nor agree with the terms defined in the
 							document, or break our trust by behaving in a total disrespect of our
@@ -131,10 +132,10 @@ export const CodeOfConduct = () => {
 							people, we don’t want to be a source of hate nor inflating the hate of
 							each other.
 						</Copy>
-					</article>
+					</Tile>
 				</section>
 				<footer>
-					<Copy>@bullgit</Copy>
+					<Copy textSize={"large"}>@bullgit</Copy>
 				</footer>
 			</Column>
 		</Main>
