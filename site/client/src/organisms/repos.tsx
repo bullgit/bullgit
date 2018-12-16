@@ -1,6 +1,6 @@
 import {css, styled} from "@bullgit/styled-components";
 import React from "react";
-import {Box, BoxAY, BoxY, Column, Row} from "../components/grid-system";
+import {Box, BoxAX, BoxAXY, BoxAY, BoxY, Column, Row} from "../components/grid-system";
 import Icon from "../components/icon";
 import {BlockLink} from "../components/links";
 import Copy from "../components/text/copy";
@@ -111,6 +111,53 @@ const StyledName = styled(Name)`
 	display: flex;
 `;
 
+const Toggle = styled(BoxAXY)`
+	font-weight: bold;
+	cursor: pointer;
+	display: block;
+	::-webkit-details-marker {
+		display: none;
+	}
+	${({theme: {colors}}) => css`
+		color: ${colors.main};
+		&:hover {
+			color: #000;
+		}
+	`};
+`;
+
+const Open = styled(Icon).attrs({
+	iconName: "chevronDown"
+})`
+
+`;
+
+const Close = styled(Icon).attrs({
+	iconName: "chevronUp"
+})`
+	display: none;
+`;
+
+const ToggleBox = styled(BoxAY)`
+	display: block;
+	&[open] > ${Toggle} {
+		${Close} {
+			display: unset;
+		}
+		${Open} {
+			display: none;
+		}
+		${({theme: {colors}}) => css`
+			background: ${colors.main};
+			color: #fff;
+			&:hover {
+				background: none;
+				color: #000;
+			}
+		`};
+	}
+`
+
 export const Repos: React.FunctionComponent<ReposProps> = props => {
 	const {sortBy, show} = props;
 	const sortedRepos = repos;
@@ -155,31 +202,33 @@ export const Repos: React.FunctionComponent<ReposProps> = props => {
 											? "eeeee..."
 											: repo.description}
 									</Copy>
-									<BoxAY as={"details"}>
-										<BoxY as={"summary"}>more info</BoxY>
-										<section>
-											<Copy>
+									<ToggleBox as={"details"}>
+										<Toggle as={"summary"}>
+											<Open/><Close/> more info
+										</Toggle>
+										<BoxY as={"section"}>
+											<div>
 												<strong>Open issues: </strong>
 												<span>{repo.open_issues_count}</span>
-											</Copy>
-											<Copy>
+											</div>
+											<div>
 												<strong>Watchers: </strong>
 												<span>{repo.watchers_count}</span>
-											</Copy>
-											<Copy>
+											</div>
+											<div>
 												<strong>Forks: </strong>
 												<span>{repo.forks_count}</span>
-											</Copy>
-											<Copy>
+											</div>
+											<div>
 												<strong>Created: </strong>
 												<span>{repo.created_at}</span>
-											</Copy>
-											<Copy>
+											</div>
+											<div>
 												<strong>Last update: </strong>
 												<span>{repo.updated_at}</span>
-											</Copy>
-										</section>
-									</BoxAY>
+											</div>
+										</BoxY>
+									</ToggleBox>
 								</Tile>
 							</Column>
 						);

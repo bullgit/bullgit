@@ -25,9 +25,9 @@ export interface IconProps extends SvgProps {
 }
 
 
-const Icon: React.FunctionComponent<IconProps> = (props: IconProps) => (
-	<Svg viewBox={`0 0 ${props.iconSize} ${props.iconSize}`} iconSize={props.iconSize}>
-		<Path d={icons[props.iconName]} />
+const Icon: React.FunctionComponent<IconProps> = ({iconName, ...props}) => (
+	<Svg {...props} viewBox={`0 0 ${props.iconSize} ${props.iconSize}`} >
+		<Path d={icons[iconName]} />
 	</Svg>
 );
 
