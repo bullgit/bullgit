@@ -16,16 +16,10 @@ const HeaderText = styled.div`
 	margin-left: ${calc(VGRID_PADDING, "+", "1.5rem", "+", VCOLUMN_MARGIN)};
 `;
 
-class Header extends React.Component<{}, {}> {
-	public render() {
-		return (
-			<React.Fragment>
-				<StyledHeader {...this.props} as="header">
-					<HeaderText>{this.props.children}</HeaderText>
-				</StyledHeader>
-			</React.Fragment>
-		);
-	}
-}
+const Header: React.FunctionComponent<{}> = ({children, ...props}) => (
+	<StyledHeader {...props} as="header">
+		<HeaderText>{children}</HeaderText>
+	</StyledHeader>
+);
 
 export default Header;

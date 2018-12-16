@@ -13,7 +13,7 @@ export interface StyledTileProps extends ColumnProps {
 }
 
 
-const StyledTile = styled(BoxX)<StyledTileProps>`
+export const StyledTile = styled(BoxX)<StyledTileProps>`
 	${(props) => css`
 		padding-top: ${props.removePadding === "top" || props.removePadding === "both" ? 0 : VBASELINE};
 		padding-bottom: ${props.removePadding === "bottom" || props.removePadding === "both" ? 0 : VBASELINE};
@@ -27,7 +27,7 @@ const StyledTile = styled(BoxX)<StyledTileProps>`
 
 export type TileProps = StyledTileProps;
 
-const Tile: React.FunctionComponent<TileProps> = (props) => <StyledTile {...props} fullWidth={true} />;
+const Tile: React.FunctionComponent<TileProps> = (props) => <StyledTile {...props} />;
 
 Tile.defaultProps = {
 	backgroundColor: "white",

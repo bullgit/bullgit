@@ -1,12 +1,12 @@
 import {css, styled} from "@bullgit/styled-components";
 import React from "react";
-import {Box, BoxAX, BoxAXY, BoxAY, BoxY, Column, Row} from "../components/grid-system";
+import {Box, BoxAXY, BoxAY, BoxY, Column, Row} from "../components/grid-system";
 import Icon from "../components/icon";
 import {BlockLink} from "../components/links";
 import Copy from "../components/text/copy";
 import Headline from "../components/text/headline";
-import Tile from "../components/tile";
 import {repos} from "../data/repos";
+import {Card, StyledCard} from "../molecules/card";
 
 type Primer = (...args: any[]) => number;
 interface Config {
@@ -160,7 +160,7 @@ const ToggleBox = styled(BoxAY)`
 			}
 		`};
 	}
-`
+`;
 
 export const Repos: React.FunctionComponent<ReposProps> = props => {
 	const {sortBy, show} = props;
@@ -176,7 +176,7 @@ export const Repos: React.FunctionComponent<ReposProps> = props => {
 					{filteredRepos.map(repo => {
 						return (
 							<Column key={repo.id} columnSpan={[4]}>
-								<Tile removePadding={"top"}>
+								<StyledCard removePadding={"top"}>
 									<Row as={"header"}>
 										<Header>
 											<StyledName>
@@ -233,7 +233,7 @@ export const Repos: React.FunctionComponent<ReposProps> = props => {
 											</div>
 										</BoxY>
 									</ToggleBox>
-								</Tile>
+								</StyledCard>
 							</Column>
 						);
 					})}

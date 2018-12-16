@@ -2,7 +2,7 @@ import {css, styled, theme, ThemeProvider} from "@bullgit/styled-components";
 import React from "react";
 import {hot} from "react-hot-loader";
 import {Route, Switch} from "react-router";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import {Logo} from "./atoms/logo";
 
 import GridOverlay from "./components/grid";
@@ -71,21 +71,27 @@ const Bullheader = styled(Header)`
 		background: ${colors.background.medium};
 		color: #000;
 	`};
-
 `;
 
-const NavItem = styled(BlockLink)`
+const NavItem = styled(BlockLink).attrs({
+	activeClassName: "isActive"
+})`
 	${({theme: {colors}}) => css`
 		background: ${colors.background.medium};
 		color: #000;
 		&:hover {
-			background: ${colors.background.lighter};
+			background: ${colors.background.light};
+			color: ${colors.main};
+		}
+		&.isActive {
+			color: ${colors.main};
 		}
 	`};
 	${BoxAYX} {
 		background: inherit;
 		font-weight: bold;
 	}
+	
 `;
 
 const Footer = styled.footer`
@@ -108,10 +114,10 @@ class App extends React.Component {
 						<Bullheader>
 							<Column>
 								<Row as={"nav"}>
-									<NavItem as={Link} to={"/"}>
+									<NavItem as={NavLink} to={"/"} exact={true}>
 										<BoxAYX>Home</BoxAYX>
 									</NavItem>
-									<NavItem as={Link} to={"/repos"}>
+									<NavItem as={NavLink} to={"/repos"}>
 										<BoxAYX>Repos</BoxAYX>
 									</NavItem>
 								</Row>
@@ -136,12 +142,12 @@ class App extends React.Component {
 							<Column columnSpan={[4]}>
 								<List flatList={true}>
 									<ListItem>
-										<BlockLink as={Link} to={"/coc"}>
+										<BlockLink as={NavLink} to={"/coc"}>
 											Code of Conduct
 										</BlockLink>
 									</ListItem>
 									<ListItem>
-										<BlockLink as={Link} to={"/map"}>
+										<BlockLink as={NavLink} to={"/map"}>
 											Bullgiverse
 										</BlockLink>
 									</ListItem>
