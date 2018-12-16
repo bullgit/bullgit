@@ -176,7 +176,7 @@ export const Repos: React.FunctionComponent<ReposProps> = props => {
 					{filteredRepos.map(repo => {
 						return (
 							<Column key={repo.id} columnSpan={[4]}>
-								<StyledCard removePadding={"top"}>
+								<StyledCard removePadding={"both"}>
 									<Row as={"header"}>
 										<Header>
 											<StyledName>
@@ -194,11 +194,11 @@ export const Repos: React.FunctionComponent<ReposProps> = props => {
 												)}
 											</StyledName>
 
-											<BlockLink href={repo.stargazers_url}>
 												<Stargazers>
+											<BlockLink href={repo.stargazers_url}>
 													<Star><Icon iconName="star" /></Star> {repo.stargazers_count}
-												</Stargazers>
 											</BlockLink>
+												</Stargazers>
 										</Header>
 									</Row>
 									<Copy>

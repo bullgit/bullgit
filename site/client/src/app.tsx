@@ -73,6 +73,16 @@ const Bullheader = styled(Header)`
 	`};
 `;
 
+const StyledLogo = styled(Logo)`
+	font-size: 3rem;
+	margin: -0.25em 0;
+`;
+const LinkWrapper = styled(BoxAYX)`
+	display: flex;
+	background: inherit;
+	font-weight: bold;
+`;
+
 const NavItem = styled(BlockLink).attrs({
 	activeClassName: "isActive"
 })`
@@ -87,12 +97,8 @@ const NavItem = styled(BlockLink).attrs({
 			color: ${colors.main};
 		}
 	`};
-	${BoxAYX} {
-		background: inherit;
-		font-weight: bold;
-	}
-	
 `;
+
 
 const Footer = styled.footer`
 	${({theme: {colors}}) => css`
@@ -107,7 +113,7 @@ class App extends React.Component {
 			<ThemeProvider theme={theme}>
 				<React.Fragment>
 					{process.env.NODE_ENV !== "production" && (
-						<GridOverlay {...defaultGrid} columnCount={[2, 4, 6, 8]} />
+						<GridOverlay {...defaultGrid} columnCount={[4, 8, 12, 16]} maxWidth={1680} colorAlpha={0.2}/>
 					)}
 					<GlobalStyle />
 					<React.Fragment>
@@ -115,10 +121,10 @@ class App extends React.Component {
 							<Column>
 								<Row as={"nav"}>
 									<NavItem as={NavLink} to={"/"} exact={true}>
-										<BoxAYX>Home</BoxAYX>
+										<LinkWrapper><StyledLogo/> Home</LinkWrapper>
 									</NavItem>
 									<NavItem as={NavLink} to={"/repos"}>
-										<BoxAYX>Repos</BoxAYX>
+										<LinkWrapper>Repos</LinkWrapper>
 									</NavItem>
 								</Row>
 							</Column>

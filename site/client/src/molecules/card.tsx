@@ -4,7 +4,7 @@ import Tile, {TileProps} from "../components/tile";
 
 interface CardProps extends Partial<TileProps> {};
 export const Card: React.FunctionComponent<CardProps> = ({as, ...props}) => (
-	<Tile {...props}/>
+	<Tile {...props} as={"article"}/>
 );
 
 export const StyledCard = styled(Card)`

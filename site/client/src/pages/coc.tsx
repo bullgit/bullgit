@@ -28,7 +28,7 @@ export const CodeOfConduct = () => {
 					<header>
 						<Headline as={"h3"}>Purpose</Headline>
 					</header>
-					<StyledCard removePadding={"both"}>
+					<StyledCard>
 						<Copy>
 							The goal of this document is to define the best way to interact with
 							each other in the group as well as with everyone online.
@@ -52,7 +52,7 @@ export const CodeOfConduct = () => {
 					<header>
 						<Headline as={"h3"}>Expected Behavior</Headline>
 					</header>
-					<StyledCard removePadding={"both"}>
+					<StyledCard>
 						<Copy>
 							We are an open community, we love all of our gitches and we prone
 							respect and love.
@@ -80,7 +80,7 @@ export const CodeOfConduct = () => {
 					<header>
 						<Headline as={"h3"}>Unacceptable Behavior</Headline>
 					</header>
-					<StyledCard removePadding={"both"}>
+					<StyledCard>
 						<Copy>
 							<strong>Unacceptable behaviors include:</strong>
 						</Copy>
@@ -119,7 +119,7 @@ export const CodeOfConduct = () => {
 					<header>
 						<Headline as={"h3"}>Consequences of unacceptable Behaviour</Headline>
 					</header>
-					<StyledCard removePadding={"both"}>
+					<StyledCard>
 						<Copy>
 							If a gitch do not respect nor agree with the terms defined in the
 							document, or break our trust by behaving in a total disrespect of our

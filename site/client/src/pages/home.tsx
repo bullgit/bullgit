@@ -24,7 +24,7 @@ export const Home = () => {
 		<React.Fragment>
 			<Spacer rows={3}/>
 			<BoxY>
-				<Grid {...defaultGrid} columnCount={[4, 4]} maxWidth={960}>
+				<Grid {...defaultGrid} columnCount={[4, 4]} maxWidth={890}>
 					<Column fullWidth={true}>
 						<Copy as={"pre"}>
 							bullgit is a developer crew & a bunch of 31 friends from all around
@@ -37,7 +37,7 @@ export const Home = () => {
 			</BoxY>
 			<Spacer rows={3}/>
 			<Stage>
-				<Grid {...defaultGrid} columnCount={[4, 4]} maxWidth={960}>
+				<Grid {...defaultGrid} columnCount={[4, 4]} maxWidth={890}>
 					<Repos
 						show={1}
 						sortBy={[{name: "stargazers_count", reverse: true}, "full_name"]}
@@ -45,12 +45,12 @@ export const Home = () => {
 				</Grid>
 			</Stage>
 			<div>
-				<Grid {...defaultGrid} columnCount={[4, 8]} maxWidth={960}>
+				<Grid {...defaultGrid} columnCount={[4, 8]} maxWidth={890}>
 					<Repos show={6} sortBy={["full_name", "stargazers_count"]} />
 				</Grid>
 			</div>
 			<Gitchmunity>
-				<Main {...defaultGrid} columnCount={[4, 8, 12, 16]}>
+				<Main {...defaultGrid} columnCount={[4, 8, 12, 16]} maxWidth={1680}>
 					<Gitches />
 				</Main>
 			</Gitchmunity>
