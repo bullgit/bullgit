@@ -88,6 +88,10 @@ const Star = styled.span`
 	margin-right: var(--bullgit-column-margin);
 `;
 
+const Globe = styled(Box)`
+	display: flex;
+`;
+
 const Header = styled(Column).attrs({
 	fullWidth: true
 })`
@@ -115,7 +119,7 @@ const Toggle = styled(BoxAXY)`
 	font-weight: bold;
 	cursor: pointer;
 	display: block;
-	::-webkit-details-marker {
+	&::-webkit-details-marker {
 		display: none;
 	}
 	${({theme: {colors}}) => css`
@@ -183,9 +187,9 @@ export const Repos: React.FunctionComponent<ReposProps> = props => {
 												</BlockLink>
 												{repo.homepage && (
 													<BlockLink href={repo.homepage}>
-														<Box>
+														<Globe>
 															<Icon iconName="globe" />
-														</Box>
+														</Globe>
 													</BlockLink>
 												)}
 											</StyledName>
