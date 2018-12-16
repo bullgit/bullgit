@@ -49,28 +49,26 @@ module.exports = async (env, argv) => {
 			...((() => {
 				const template = path.resolve(CWD, "html/index.html");
 				const { base: filename } = path.parse(template);
-				const alwaysWriteToDisk = true;
 				const { default: App } = require(path.resolve(LIB, "app.js"));
-				const sheet = new styled.ServerStyleSheet();
 				const appRoutes = path.resolve(LIB, "routes.js")
 				const {routes} = require(appRoutes);
 				const pages = routes.map((page) => {
+					const sheet = new styled.ServerStyleSheet();
 					const component = React.createElement(StaticRouter, {
 							location: page.location,
 							context: {}
 						},
 						React.createElement(App));
-					const app = ReactDOMServer.renderToString((component));
+					const app = ReactDOMServer.renderToString(sheet.collectStyles(component));
 					const head = sheet.getStyleTags();
-					const templateParameters = {
-						...page, app, head
-					};
 					const outputFile = path.join(page.location, filename).replace(/^\//, "");
 					return new HtmlWebpackPlugin({
-						alwaysWriteToDisk,
+						alwaysWriteToDisk: true,
 						filename: outputFile,
 						template,
-						templateParameters
+						templateParameters: {
+							...page, app, head
+						}
 					});
 				});
 				return pages;
