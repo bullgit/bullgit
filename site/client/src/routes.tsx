@@ -18,33 +18,33 @@ export const routes: Routes = [
 	{
 		component: Home,
 		description: "Welcome to awesomeness. Serving finest shit since 2013",
-		keywords: "a",
+		keywords: "bullgit, bullshit, git, github, fun, funny, broken, joke, parody, satire, ironic",
 		location: "/",
-		summary: "Welcome to awesomeness. Serving finest shit since 2013",
+		summary: "Serving finest shit since 2013",
 		title: "Bullgit | Serving finest shit since 2013"
 	},
 	{
 		component: Map,
 		description: "Welcome to awesomeness. Serving finest shit since 2013",
-		keywords: "a",
+		keywords: "bullgit, bullshit, git, github, fun, funny, broken, joke, parody, satire, ironic",
 		location: "/map",
-		summary: "a",
+		summary: "The bullgit world map",
 		title: "Bullgiverse | The bullgit world map"
 	},
 	{
 		component: Repositories,
 		description: "Welcome to awesomeness. Serving finest shit since 2013",
-		keywords: "a",
+		keywords: "bullgit, bullshit, git, github, fun, funny, broken, joke, parody, satire, ironic",
 		location: "/repos",
-		summary: "a",
+		summary: "Serving finest shit since 2013",
 		title: "Bullgit | Serving finest shit since 2013"
 	},
 	{
 		component: CodeOfConduct,
 		description: "Welcome to awesomeness. Serving finest shit since 2013",
-		keywords: "a",
+		keywords: "bullgit, bullshit, git, github, fun, funny, broken, joke, parody, satire, ironic",
 		location: "/coc",
-		summary: "a",
+		summary: "Code of Conduct",
 		title: "Bullgit | Code of Conduct"
 	}
 ];
