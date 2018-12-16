@@ -1,5 +1,7 @@
 import {styled} from "@bullgit/styled-components";
 import React from "react";
+import {defaultGrid} from "../components/grid-system/config";
+import Main from "../components/main";
 import {BullgitMap} from "../organisms/map";
 
 const MapWrapper = styled.div`
@@ -11,8 +13,10 @@ const MapWrapper = styled.div`
 `;
 export const Map = () => {
 	return (
-		<MapWrapper>
-			<BullgitMap/>
-		</MapWrapper>
+		<Main {...defaultGrid}>
+			<MapWrapper>
+				<BullgitMap/>
+			</MapWrapper>
+		</Main>
 	)
 };

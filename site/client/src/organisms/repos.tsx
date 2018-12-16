@@ -1,7 +1,8 @@
+import {css, styled} from "@bullgit/styled-components";
 import React from "react";
-import {BoxAY, BoxY, Column, Row} from "../components/grid-system";
+import {BoxAY, BoxX, BoxY, Column, Row, Box} from "../components/grid-system";
 import Icon from "../components/icon";
-import {BlockLink, InlineLink} from "../components/links";
+import {BlockLink} from "../components/links";
 import Copy from "../components/text/copy";
 import Headline from "../components/text/headline";
 import Tile from "../components/tile";
@@ -39,6 +40,38 @@ const sortByFields = (...fields) => {
 	};
 };
 
+const Stargazers = styled(BoxY)`
+	display: flex;
+	justify-content: flex-end;
+`;
+
+const Star = styled.span`
+	margin-right: var(--bullgit-column-margin);
+`;
+
+const Header = styled(Column).attrs({
+	fullWidth: true
+})`
+	display: flex;
+	${BlockLink} {
+		${({theme: {colors}}) => css`
+			color: ${colors.main};
+		`};
+		&:hover {
+			color: #000;
+		}
+	}
+`;
+
+const Name = (props) => {
+	return <Headline {...props} as={"h3"}/>
+};
+
+const StyledName = styled(Name)`
+	flex: 1;
+	display: flex;
+`;
+
 export const Repos: React.FunctionComponent<ReposProps> = props => {
 	const {sortBy, show} = props;
 	const sortedRepos = repos;
@@ -55,22 +88,34 @@ export const Repos: React.FunctionComponent<ReposProps> = props => {
 							<Column key={repo.id} columnSpan={[4]}>
 								<Tile removePadding={"top"}>
 									<Row as={"header"}>
-										<Column columnSpan={[3]}>
-											<Headline as={"h3"}>
-												<InlineLink href={repo.html_url}>{repo.name.match("eeeeee") ? "eeeee..." : repo.name}</InlineLink>
-											</Headline>
-										</Column>
-										<Column>
-											<BlockLink href={repo.stargazers_url}>
-												<BoxY>
-													<Icon iconName="star" />{" "}
-													{repo.stargazers_count}
-												</BoxY>
-											</BlockLink>
-										</Column>
+										<Header>
+											<StyledName>
+												<BlockLink href={repo.html_url}>
+													{repo.name.match("eeeeee")
+														? "eeeee..."
+														: repo.name}
+												</BlockLink>
+												{repo.homepage && (
+													<BlockLink href={repo.homepage}>
+														<Box>
+															<Icon iconName="globe" />
+														</Box>
+													</BlockLink>
+												)}
+											</StyledName>
 
+											<BlockLink href={repo.stargazers_url}>
+												<Stargazers>
+													<Star><Icon iconName="star" /></Star> {repo.stargazers_count}
+												</Stargazers>
+											</BlockLink>
+										</Header>
 									</Row>
-									<Copy>{repo.description && repo.description.match("eeeeee") ? "eeeee..." : repo.description}</Copy>
+									<Copy>
+										{repo.description && repo.description.match("eeeeee")
+											? "eeeee..."
+											: repo.description}
+									</Copy>
 									<BoxAY as={"details"}>
 										<BoxY as={"summary"}>more info</BoxY>
 										<section>

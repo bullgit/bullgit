@@ -1,12 +1,14 @@
 import React from "react";
 import {Column} from '../components/grid-system';
-import Headline from "../components/text/headline";
-import Copy from "../components/text/copy";
+import {defaultGrid} from "../components/grid-system/config";
 import {List, ListItem} from "../components/list";
+import Main from "../components/main";
+import Copy from "../components/text/copy";
+import Headline from "../components/text/headline";
 
 export const CodeOfConduct = () => {
 	return (
-		<React.Fragment>
+		<Main {...defaultGrid}>
 			<Column as={"header"} fullWidth={true}>
 					<Headline as={"h1"}>
 						Bullgit Code of Conduct
@@ -135,6 +137,6 @@ export const CodeOfConduct = () => {
 					<Copy>@bullgit</Copy>
 				</footer>
 			</Column>
-		</React.Fragment>
+		</Main>
 	);
 };

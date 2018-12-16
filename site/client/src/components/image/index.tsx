@@ -55,13 +55,12 @@ const StyledFigure = styled("figure")<StyledFigureProps>`
 	position: relative;
 	display: inline-flex;
 	vertical-align: bottom;
-	align-items: flex-start;
-	align-content: flex-start;
-	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
 	width: ${figureWidth};
 	height: ${cssVar(HEIGHT, "auto")};
 	min-height: 3rem;
-	min-width: 100%;
 	padding: 0;
 	margin: ${(props: StyledImageProps): string | number => {
 		if (props.removeGap === "both") {
@@ -289,12 +288,14 @@ class ImageMedia extends React.Component<ImageProps, ImageState> {
 		const {naturalHeight, naturalWidth} = this.image.current;
 		this.aspectRatio = naturalWidth / naturalHeight;
 		const height = `${this.height(originalHeight)}px`;
-		this.setState({height, loading: false, width: `${width}px`});
+		this.setState({height, loading: false, width: `${width}px`}, () => {
+			this.handleResize();
+		});
 	};
 
 	private handleResize = () => {
 		const {current: node} = this.figure;
-		this.setState({height: "auto", width: "auto"}, () => {
+		this.setState({height: "auto", width: "100%"}, () => {
 			const {width} = node.getBoundingClientRect();
 			const originalHeight = width / this.aspectRatio;
 			const height = `${this.height(originalHeight)}px`;

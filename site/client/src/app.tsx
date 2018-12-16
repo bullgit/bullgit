@@ -93,8 +93,9 @@ class App extends React.Component {
 		return (
 			<ThemeProvider theme={theme}>
 				<React.Fragment>
-					{process.env.NODE_ENV !== "production" && <GridOverlay {...defaultGrid} colorAlpha={0.1} />}
-
+					{process.env.NODE_ENV !== "production" && (
+						<GridOverlay {...defaultGrid} columnCount={[2, 4, 6, 8]} />
+					)}
 					<GlobalStyle />
 					<React.Fragment>
 						<Header>
@@ -112,18 +113,16 @@ class App extends React.Component {
 						<Sidebar>
 							<Menu />
 						</Sidebar>
-						<Main {...defaultGrid}>
-							<Switch>
-								{routes.map(route => (
-									<Route
-										key={route.location}
-										exact={true}
-										path={route.location}
-										component={route.component}
-									/>
-								))}
-							</Switch>
-						</Main>
+						<Switch>
+							{routes.map(route => (
+								<Route
+									key={route.location}
+									exact={true}
+									path={route.location}
+									component={route.component}
+								/>
+							))}
+						</Switch>
 					</React.Fragment>
 					<Footer>
 						<Grid {...defaultGrid}>
