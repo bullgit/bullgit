@@ -1,4 +1,3 @@
-const globby = require("globby");
 const HtmlWebpackHarddiskPlugin = require("html-webpack-harddisk-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
@@ -11,7 +10,7 @@ module.exports = async (env, argv) => {
 	const cwd = process.cwd();
 	const CWD = path.resolve(cwd);
 	const SRC = path.resolve(cwd, "src");
-	const LIB = path.resolve(cwd, "lib/src");
+	const LIB = path.resolve(cwd, "lib");
 	const PUBLIC = path.resolve(cwd, "public");
 	return {
 		entry: {
@@ -50,29 +49,26 @@ module.exports = async (env, argv) => {
 			...((() => {
 				const template = path.resolve(CWD, "html/index.html");
 				const { base: filename } = path.parse(template);
-				const alwaysWriteToDisk = true;
 				const { default: App } = require(path.resolve(LIB, "app.js"));
-				const sheet = new styled.ServerStyleSheet();
-				const appRoutes = path.resolve(CWD, "lib/src/routes.js")
+				const appRoutes = path.resolve(LIB, "routes.js")
 				const {routes} = require(appRoutes);
-				const pages = routes.map(page => {
+				const pages = routes.map((page) => {
+					const sheet = new styled.ServerStyleSheet();
 					const component = React.createElement(StaticRouter, {
 							location: page.location,
 							context: {}
 						},
 						React.createElement(App));
-					const app = ReactDOMServer.renderToString((component));
+					const app = ReactDOMServer.renderToString(sheet.collectStyles(component));
 					const head = sheet.getStyleTags();
-					const templateParameters = {
-						app,
-						head
-					};
 					const outputFile = path.join(page.location, filename).replace(/^\//, "");
 					return new HtmlWebpackPlugin({
-						alwaysWriteToDisk,
+						alwaysWriteToDisk: true,
 						filename: outputFile,
 						template,
-						templateParameters
+						templateParameters: {
+							...page, app, head
+						}
 					});
 				});
 				return pages;

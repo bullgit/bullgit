@@ -2,14 +2,14 @@
   "name": "@bullgit/config-typescript",
   "version": "0.1.0",
   "description": "extendable typescript configs",
-  "main": "tsconfig.json",
+  "license": "MIT",
+  "author": "Gregor Adams <greg@pixelass.com>",
   "files": [
     "config/*",
     "tsconfig.json",
     "react.json"
   ],
-  "author": "Gregor Adams <greg@pixelass.com>",
-  "license": "MIT",
+  "main": "tsconfig.json",
   "peerDependencies": {
     "typescript": "^3.2.2"
   }

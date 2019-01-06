@@ -12,7 +12,7 @@
   "license": "MIT",
   "scripts": {
     ">>> ROOT BUILDS <<<": "# Run all necessary tasks to build or develop",
-    "build": "cross-env NODE_ENV=producion yarn rollup && yarn cli:build && yarn bullgit repos --write && yarn website:build",
+    "build": "cross-env NODE_ENV=production yarn rollup && yarn cli:build && yarn bullgit repos --write && yarn website:build",
     "prebuild": "lerna run clean",
     "watch": "yarn rollup && concurrently 'yarn rollup:watch' 'yarn website:watch'",
     ">>> CLEANUPS <<<": "# Clean or reset the repository",
@@ -43,9 +43,9 @@
   "dependencies": {
     "concurrently": "4.1.0",
     "cross-env": "5.2.0",
-    "husky": "^1.2.0",
-    "rimraf":"2.6.2",
-    "lerna": "^3.6.0"
+    "husky": "^1.3.1",
+    "rimraf": "2.6.3",
+    "lerna": "^3.8.5"
   },
   "private": true,
   "workspaces": [

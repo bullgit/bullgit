@@ -1,9 +1,6 @@
 import {styled, theme} from "@bullgit/styled-components";
 import React from "react";
-import {Icon} from "../atoms/index";
-import {icons} from "../atoms/icons";
-import {gitches} from "../data/gitches/index";
-
+import {gitches} from "../data/gitches";
 
 interface AppState {
 	Map: React.ComponentType<any>;
@@ -12,23 +9,18 @@ interface AppState {
 	clusterMarker: any;
 }
 
-const BigIcon = styled(Icon)`
-	font-size: 3rem;
-`;
-
 const AvatarMarker = styled.img`
 	height: 3rem;
 	width: 3rem;
 	border-radius: 50%;
 `;
 
-const MapMarker = () => {
-	return (
-		<BigIcon>
-			<path d={icons.marker} />
-		</BigIcon>
-	);
-};
+const ClusterLabel = styled.text`
+	font-size: 1.5rem;
+	fill: #fff;
+	dominant-baseline: central;
+	text-anchor: middle;
+`;
 
 const Noop = (props: any) => null;
 
@@ -54,12 +46,40 @@ export class BullgitMap extends React.Component<{}, AppState> {
 		const MapboxMap = Mapbox({
 			accessToken:
 				"pk.eyJ1IjoicGl4ZWxhc3MiLCJhIjoiY2pwbXBpNm9iMDg5ejQ5anhmMjVzcGVuZyJ9.SCeeFz9mp2BDvfYM48fcFA"
-			// injectCss: false
 		});
-		const clusterMarker = coordinates => {
+		const clusterMarker = (coordinates, pointCount) => {
+			const minMax = (n: number) =>  Math.min(48, Math.max(24, n));
+			const r1 = 24;
+			const r3 = minMax( pointCount * 12);
+			const r2 = minMax((r3 - r1) / 2 + r1);
 			return (
-				<Marker coordinates={coordinates} key={coordinates.join("")}>
-					<AvatarMarker src={"https://bullg.it/media/pixels/bullgit-pro.png"} />
+				<Marker coordinates={coordinates} key={coordinates.join(":")}>
+					<svg
+						height={"96px"}
+						width={"96px"}
+						viewBox="0 0 96 96">
+						<circle
+							cx={48}
+							cy={48}
+							r={r3}
+							fill={`hsla(${pointCount * 10}, 100%, 50%, 0.75)`}
+						/>
+						<circle
+							cx={48}
+							cy={48}
+							r={r2}
+							fill={`hsla(${pointCount * 10}, 100%, 40%, 0.25)`}
+						/>
+						<circle
+							cx={48}
+							cy={48}
+							r={r1}
+							fill={`hsla(${pointCount * 10}, 100%, 30%, 0.25)`}
+						/>
+						<ClusterLabel x={48} y={48}>
+							{pointCount}
+						</ClusterLabel>
+					</svg>
 				</Marker>
 			);
 		};
@@ -85,16 +105,12 @@ export class BullgitMap extends React.Component<{}, AppState> {
 					{gitches.map((gitch, i) => {
 						const [lat, lon] = gitch.latlon;
 						return (
-								<Marker
-									key={gitch.github}
-									coordinates={[lon, lat]}
-									anchor={gitch.gravatar ? "center" : "bottom"}>
-									{gitch.gravatar ? (
-										<AvatarMarker src={gitch.gravatar} />
-									) : (
-										<MapMarker />
-									)}
-								</Marker>
+							<Marker
+								key={gitch.github}
+								coordinates={[lon, lat]}
+								anchor={gitch.gravatar ? "center" : "bottom"}>
+								<AvatarMarker src={gitch.gravatar} />
+							</Marker>
 						);
 					})}
 				</Cluster>

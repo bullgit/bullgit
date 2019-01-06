@@ -1,55 +1,169 @@
+import {css, styled} from "@bullgit/styled-components";
 import React from "react";
-import {
-	BlockLink, Content,
-	InlineLink,
-	OutlineIcon,
-	Repo,
-	RepoCount,
-	RepoDescription,
-	RepoGhost,
-	RepoHeader,
-	RepoName,
-	RepoStar,
-	Wrapper
-} from "../atoms";
-import {icons} from "../atoms/icons";
+import {Box, BoxAXY, BoxAY, BoxY, Column, Row} from "../components/grid-system";
+import Icon from "../components/icon";
+import {BlockLink} from "../components/links";
+import Copy from "../components/text/copy";
+import Headline from "../components/text/headline";
 import {repos} from "../data/repos";
+import {Card, StyledCard} from "../molecules/card";
 
-export type Sorting =
-	| "stargazers_count"
-	| "open_issues_count"
-	| "name"
-	| "-stargazers_count"
-	| "-open_issues_count"
-	| "-name";
-export interface ReposProps {
-	show?: number;
-	sortBy?: Sorting[];
-	direction?: "ascending" | "descending";
+type Primer = (...args: any[]) => number;
+interface Config {
+	name: string;
+	primer?: Primer;
+	reverse?: boolean;
 }
 
-const sortByFields = (...fields) => {
-	return (a, b) => {
-		return fields
-			.map(field => {
-				const dir = field[0] === "-" ? -1 : 1;
-				const key = dir < 1 ? field.substring(1) : field;
-				if (a[key] > b[key]) {
-					return dir;
-				}
-				if (a[key] < b[key]) {
-					return -1 * dir;
-				}
-				return 0;
-			})
-			.reduce((previous, next) => {
-				return previous ? previous : next;
-			}, 0);
-	};
+interface SortConfig extends Config {
+	name: string;
+}
+
+export interface ReposProps {
+	show?: number;
+	sortBy?: Array<SortConfig|string>;
+}
+
+type Comparator = number | string;
+
+const compare = (a: Comparator, b: Comparator) => {
+	if (a === b) {
+		return 0;
+	}
+	if (typeof a === "string" && typeof b === "string") {
+		return a.toLowerCase() < b.toLowerCase() ? -1 : 1;
+	}
+	return a < b ? -1 : 1;
 };
 
+const getCmpFunc = ({primer, reverse}: Config) => {
+	const cmp = primer ?
+		(a, b) => compare(primer(a), primer(b))
+		: compare;
+	if (reverse) {
+		return (a, b) => -1 * cmp(a, b);
+	}
+	return cmp;
+};
+const sortByFields = (...args: Array<SortConfig|string>) => {
+	const fields = [];
+	const {length} = args;
+
+	for (let i = 0; i < length; i++) {
+		const field = args[i];
+		const name = field;
+		const cmp = compare;
+		if (typeof field === "object") {
+			fields.push({
+				cmp: getCmpFunc(field),
+				name: field.name
+			});
+		} else {
+			fields.push({name, cmp});
+		}
+
+	}
+
+	return (a, b) => {
+		let result;
+		for (let i = 0; i < length; i++) {
+			result = 0;
+			const field = fields[i];
+			const {name, cmp} = field;
+			result = cmp(a[name], b[name]);
+			if (result !== 0) {
+				break
+			};
+		}
+		return result;
+	}
+};
+
+const Stargazers = styled(BoxY)`
+	display: flex;
+	justify-content: flex-end;
+`;
+
+const Star = styled.span`
+	margin-right: var(--bullgit-column-margin);
+`;
+
+const Globe = styled(Box)`
+	display: flex;
+`;
+
+const Header = styled(Column).attrs({
+	fullWidth: true
+})`
+	display: flex;
+	${BlockLink} {
+		${({theme: {colors}}) => css`
+			color: ${colors.main};
+		`};
+		&:hover {
+			color: #000;
+		}
+	}
+`;
+
+const Name = (props) => {
+	return <Headline {...props} as={"h3"}/>
+};
+
+const StyledName = styled(Name)`
+	flex: 1;
+	display: flex;
+`;
+
+const Toggle = styled(BoxAXY)`
+	font-weight: bold;
+	cursor: pointer;
+	display: block;
+	&::-webkit-details-marker {
+		display: none;
+	}
+	${({theme: {colors}}) => css`
+		color: ${colors.main};
+		&:hover {
+			color: #000;
+		}
+	`};
+`;
+
+const Open = styled(Icon).attrs({
+	iconName: "chevronDown"
+})`
+
+`;
+
+const Close = styled(Icon).attrs({
+	iconName: "chevronUp"
+})`
+	display: none;
+`;
+
+const ToggleBox = styled(BoxAY)`
+	display: block;
+	&[open] > ${Toggle} {
+		${Close} {
+			display: unset;
+		}
+		${Open} {
+			display: none;
+		}
+		${({theme: {colors}}) => css`
+			background: ${colors.main};
+			color: #fff;
+			&:hover {
+				background: none;
+				color: #000;
+			}
+		`};
+	}
+`;
+
 export const Repos: React.FunctionComponent<ReposProps> = props => {
-	const {sortBy, show, direction} = props;
+	const {sortBy, show} = props;
 	const sortedRepos = repos;
 	if (sortBy) {
 		sortedRepos.sort(sortByFields(...sortBy));
@@ -57,43 +171,74 @@ export const Repos: React.FunctionComponent<ReposProps> = props => {
 	const filteredRepos = show ? sortedRepos.filter((x, i) => i < show) : sortedRepos;
 	return (
 		<React.Fragment>
-			<Wrapper>
-				{filteredRepos.map(repo => {
-					return (
-						<Repo key={repo.id}>
-							<RepoHeader>
-								<RepoName>
-									<BlockLink href={repo.html_url}>{repo.name}</BlockLink>
-								</RepoName>
-								<InlineLink href={repo.stargazers_url}>
-									<RepoStar>
-										<OutlineIcon>
-											<path d={icons.star} />
-										</OutlineIcon>
-									</RepoStar>
-									<RepoCount>{repo.stargazers_count}</RepoCount>
-								</InlineLink>
-							</RepoHeader>
+			<Column fullWidth={true}>
+				<Row>
+					{filteredRepos.map(repo => {
+						return (
+							<Column key={repo.id} columnSpan={[4]}>
+								<StyledCard removePadding={"both"}>
+									<Row as={"header"}>
+										<Header>
+											<StyledName>
+												<BlockLink href={repo.html_url}>
+													{repo.name.match("eeeeee")
+														? "eeeee..."
+														: repo.name}
+												</BlockLink>
+												{repo.homepage && (
+													<BlockLink href={repo.homepage}>
+														<Globe>
+															<Icon iconName="globe" />
+														</Globe>
+													</BlockLink>
+												)}
+											</StyledName>
 
-							<RepoDescription>{repo.description}</RepoDescription>
-							<Content as={"details"}>
-								<summary>more info</summary>
-								<Content>
-									<div><strong>Open issues: </strong><span>{repo.open_issues_count}</span></div>
-									<div><strong>Watchers: </strong><span>{repo.watchers_count}</span></div>
-									<div><strong>Forks: </strong><span>{repo.forks_count}</span></div>
-									<div><strong>Created: </strong><span>{repo.created_at}</span></div>
-									<div><strong>Last update: </strong><span>{repo.updated_at}</span></div>
-								</Content>
-							</Content>
-						</Repo>
-					);
-				})}
-				<RepoGhost />
-				<RepoGhost />
-				<RepoGhost />
-				<RepoGhost />
-			</Wrapper>
+												<Stargazers>
+											<BlockLink href={repo.stargazers_url}>
+													<Star><Icon iconName="star" /></Star> {repo.stargazers_count}
+											</BlockLink>
+												</Stargazers>
+										</Header>
+									</Row>
+									<Copy>
+										{repo.description && repo.description.match("eeeeee")
+											? "eeeee..."
+											: repo.description}
+									</Copy>
+									<ToggleBox as={"details"}>
+										<Toggle as={"summary"}>
+											<Open/><Close/> more info
+										</Toggle>
+										<BoxY as={"section"}>
+											<div>
+												<strong>Open issues: </strong>
+												<span>{repo.open_issues_count}</span>
+											</div>
+											<div>
+												<strong>Watchers: </strong>
+												<span>{repo.watchers_count}</span>
+											</div>
+											<div>
+												<strong>Forks: </strong>
+												<span>{repo.forks_count}</span>
+											</div>
+											<div>
+												<strong>Created: </strong>
+												<span>{repo.created_at}</span>
+											</div>
+											<div>
+												<strong>Last update: </strong>
+												<span>{repo.updated_at}</span>
+											</div>
+										</BoxY>
+									</ToggleBox>
+								</StyledCard>
+							</Column>
+						);
+					})}
+				</Row>
+			</Column>
 		</React.Fragment>
 	);
 };

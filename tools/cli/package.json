@@ -2,56 +2,54 @@
   "name": "@bullgit/cli",
   "version": "0.1.0",
   "description": "Bullgit command line tools",
-  "main": "index.js",
-  "module": "dist/es/index.js",
+  "license": "MIT",
+  "author": "Gregor Adams <greg@pixelass.com>",
   "files": [
     "dist/*",
     "index.js",
     "bullgit.js",
     "gitch.js"
   ],
+  "main": "index.js",
+  "module": "dist/es/index.js",
   "bin": {
     "bullgit": "bullgit.js",
     "gitch": "gitch.js"
   },
-  "author": "Gregor Adams <greg@pixelass.com>",
-  "license": "MIT",
   "scripts": {
+    "prebuild": "yarn clean",
     "build": "yarn rollup",
     "clean": "yarn clean:dist;",
     "clean:dist": "rimraf dist",
-    "prebuild": "yarn clean",
     "rollup": "rollup -c",
     "rollup:watch": "rollup -cw"
   },
-  "devDependencies": {
-    "@bullgit/config-babel": "0.1.0",
-    "@bullgit/config-prettier": "0.1.0",
-    "@bullgit/config-rollup": "0.1.0",
-    "@bullgit/config-typescript": "0.1.0",
-    "@bullgit/config-tslint": "0.1.0",
-    "typescript": "3.2.2"
-  },
-  "peerDependencies": {
-
-  },
   "dependencies": {
     "@babel/runtime": "7.2.0",
-    "babel-runtime": "6.26.0",
-    "@types/pify": "3.0.2",
-    "@types/mkdirp": "0.5.2",
     "@types/meow": "5.0.0",
-    "chalk": "2.4.1",
-    "meow": "5.0.0",
-    "enquirer": "2.1.1",
+    "@types/mkdirp": "0.5.2",
+    "@types/pify": "3.0.2",
+    "babel-runtime": "6.26.0",
+    "chalk": "2.4.2",
+    "enquirer": "2.3.0",
     "json2yaml": "1.1.0",
-    "node-geocoder": "3.22.0",
+    "meow": "5.0.0",
     "mkdirp": "0.5.1",
+    "node-geocoder": "3.22.0",
     "octonode": "0.9.5",
     "pify": "4.0.1",
     "prop-types": "15.6.2",
     "winston": "3.1.0"
   },
+  "devDependencies": {
+    "@bullgit/config-babel": "0.1.0",
+    "@bullgit/config-prettier": "0.1.0",
+    "@bullgit/config-rollup": "0.1.0",
+    "@bullgit/config-tslint": "0.1.0",
+    "@bullgit/config-typescript": "0.1.0",
+    "typescript": "3.2.2"
+  },
+  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   }

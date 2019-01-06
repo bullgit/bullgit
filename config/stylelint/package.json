@@ -2,14 +2,14 @@
   "name": "@bullgit/config-stylelint",
   "version": "0.1.0",
   "description": "extendable stylelint configs",
-  "main": "css.js",
+  "license": "MIT",
+  "author": "Gregor Adams <greg@pixelass.com>",
   "files": [
     "config/*",
     "css.js",
     "styled-components.js"
   ],
-  "author": "Gregor Adams <greg@pixelass.com>",
-  "license": "MIT",
+  "main": "css.js",
   "dependencies": {
     "style-search": "0.1.0",
     "stylelint": "9.9.0",
